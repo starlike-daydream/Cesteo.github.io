@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Study Computer Coder">
-    <meta name="description" content="">
+    <meta name="keywords" content="Git Learning, Study Computer Coder">
+    <meta name="description" content="git的一些指令学习，学习内容来着B站">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>我的第一篇博客 | Cesteo&#39;s Blog</title>
+    <title>Git Learning | Cesteo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/Cesteo.github.io/favicon.png">
     
 
@@ -334,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/Cesteo.github.io/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Cesteo.github.io/medias/banner/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的第一篇博客</h1>
+                    <h1 class="description center-align post-title">Git Learning</h1>
                 </div>
             </div>
         </div>
@@ -361,12 +361,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/Cesteo.github.io/tags/Git/">
+                                <span class="chip bg-color">Git</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                Computer Learning
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -396,7 +409,159 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <ul>
+<li><h1 id="git的初始化操作"><a href="#git的初始化操作" class="headerlink" title="git的初始化操作"></a>git的初始化操作</h1><ul>
+<li><p>安装好git后：git version查看git版本，检测是否安装成功</p>
+</li>
+<li><p>一些dos命令：pwd–显示当前目录  ls–显示当前目录下的文件 cd ..–回退上一级目录 cd directory–切换目录  clear–清除历史记录</p>
+</li>
+<li><p>git config –global <a target="_blank" rel="noopener" href="http://user.name/">user.name</a> [“ “]：查看[设置]用户名</p>
+</li>
+<li><p>git config –global user.email [“ “]：查看[设置]用户邮箱</p>
+</li>
+<li><p>git init：在当前目录初始化一个仓库</p>
+</li>
+</ul>
+</li>
+<li><h1 id="git的提交操作"><a href="#git的提交操作" class="headerlink" title="git的提交操作"></a>git的提交操作</h1><ul>
+<li><h6 id="git-add-文件名-：把文件上传到暂存区"><a href="#git-add-文件名-：把文件上传到暂存区" class="headerlink" title="git add 文件名 ：把文件上传到暂存区"></a>git add 文件名 ：把文件上传到暂存区</h6></li>
+<li><p>git add .：上传当前目录所有文件到暂存区</p>
+</li>
+<li><p>git add *：上传当前目录全部非隐藏文件到暂存区</p>
+</li>
+<li><p>git add .*：上传当前目录全部隐藏文件到暂存区</p>
+</li>
+<li><p>git commit：把当前保存的文件提交固定成一个版本</p>
+<ul>
+<li><p>试一下会vim的终端编辑器写提交说明（备注）（我咋没有，我点了vs右上角加号才推出）</p>
+</li>
+<li><p>按i&#x2F;a进入编辑模式，写好后按Esc退出编辑模式，按下英文冒号:，输入wq回车，保存退出</p>
+</li>
+</ul>
+</li>
+<li><p>git都是按行来对比文件不同的，就两种情况：新增，删除（如果是同一行的修改，那就是同时删除一行，新增一行）</p>
+</li>
+<li><p>git log：查看提交信息（日志），每次提交都会记录日志信息</p>
+<ul>
+<li><p>提交格式：commit之后一大串随机id作为唯一标识，author是作者（是所设置的用户名和邮箱），在下面就是刚刚写的提交说明<img src="https://api2.mubu.com/v3/document_image/e9dac96c-11df-4465-9dba-ad9ad50d6741-8085313.jpg" alt="img"></p>
+</li>
+<li><p>当commit（提交）比较多，git log 的内容在一页显示不完整，满屏放不下的时候，就会显示冒号。</p>
+</li>
+<li><p>回车（往下滚一行）、空格（往下滚一页）可以继续查看剩余内容。</p>
+</li>
+<li><p>退出：英文状态下 按 q 可以退出git log 状态</p>
+</li>
+</ul>
+</li>
+<li><p>VSCode提示：新增文件显示绿色，修改文件显示橙色M（Modified），以示和上次提交的数据不一样</p>
+</li>
+<li><p>git commit -m “”：写提交说明的简化版操作，这样会跳过vim编辑，大部分人会用这种方式写提交说明</p>
+<ul>
+<li><p>git commit -m “fix(test):change content”：一种提交说明风格规范，不是硬性要求，为了让别人一目了然你的修改内容（修复(文件)：修复了……（改变内容））</p>
+</li>
+<li><p>如果要参与一个国际项目，一个规范的提交信息和英文是必要的，其他的规范词可以搜索git commit规范词自行了解，自己项目能看懂就行</p>
+</li>
+</ul>
+</li>
+<li><p>vscode页面化操作，作出修改，点击左边的git菜单，点击文件就能对比修改的内容，点击上方√号，就能提交，提示没有暂存的更改，是否暂存更改，点是就能执行git add .和git commit 了，再在上面输入commit说明按下回车就commit完成了</p>
+</li>
+<li><p>vscode自带git所有基本操作，高级操作需安装git history diff插件查看所有历史记录</p>
+</li>
+</ul>
+</li>
+<li><h1 id="git的版本控制操作"><a href="#git的版本控制操作" class="headerlink" title="git的版本控制操作"></a>git的版本控制操作</h1><ul>
+<li><p>git reset –hard 提交id：回退到历史提交状态，会清空历史记录</p>
+<ul>
+<li><p>reset是重置的意思</p>
+</li>
+<li><p>–hard是重置模式：hard表示硬重置，即覆盖所有变更</p>
+</li>
+<li><p>另外还有soft模式和默认的mixed模式</p>
+</li>
+</ul>
+</li>
+<li><p>但是只是想要切换版本该怎么办呢，这时候就可以用分支branch，顾名思义，分支就是把当前版本复制一份当作新的版本分支</p>
+</li>
+<li><p>git branch 分支名：就可以当前版本创建一个分支</p>
+</li>
+<li><p>git branch -a：查看当前已有的分支，master是主分支。</p>
+</li>
+<li><p>git checkout 分支名：切换到新的分支</p>
+</li>
+<li><p>你可以在主分支上和分支上写代码，然后某一天把这两个分支用git merge合在一起，一个人用处不大，但在团队协作用处就大了，一个团队开发的项目离不开分支</p>
+</li>
+<li><p>比如说：一个项目现有1.0版本，但要1.1版本要新增五个功能，就让五个成员分别去写这五个功能：让他们新建一个分支去，分别去开发这五个功能，最后开发好了再合并起来（git merge），再提交并使用git tag（tag命令创建固定版本）打标签生成1.1版本，团队开发互不影响，但又可以同时协作</p>
+</li>
+<li><p>形象的解释：文档1.0复制给5个人去增加5个新功能（branch），然后再把他们各自写好的功能收上来，复制粘贴他们各自写得功能（merge），最终形成1.1版本并保存（commit，tag）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/a5209ad2-6668-4d6a-9f12-514ad9cb2f7e-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
+<li><p>团队协作肯定不能在同一台电脑上，最好在一个服务器上，这个服务器可以自己搭建，但是还是公用的省事：github&#x2F;gitee（简单来说就是可以git操作的网盘）</p>
+</li>
+<li><p>github上new了一个repositoty,之后会有些教程，上传提交之后，</p>
+<ul>
+<li><p>1.git branch -M main:创建主分支并把主分支切换为main</p>
+</li>
+<li><p>2.git remote add origin 仓库url(你的仓库链接):添加一个远程仓库地址(相当于给这个git项目设置一个网盘地址,让它知道上传到哪里)</p>
+</li>
+<li><p>3.git push -u origin main:push也就是上传到github,之后要登陆一下github(push后面的参数是push源和分支)</p>
+</li>
+<li><p>我的代码出问题了,好像要git pull –rebase origin main ,再git push -u origin main,好像是仓库不一致导致的</p>
+</li>
+<li><p>之后刷新网页就可以发现上传成功啦</p>
+</li>
+<li><p>图片</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/0a2849ea-5067-45cc-baad-b80dc381c036-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>git remote -v:查看已建立的连接</p>
+</li>
+<li><p>git remote remove origin:取消当前的远程连接</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h1 id="参与开源项目"><a href="#参与开源项目" class="headerlink" title="参与开源项目"></a>参与开源项目</h1><ul>
+<li><p>来到别人的项目,点击右上角的fork:把别人的代码库复制到我的账号了,类似branch,右上角点开自己的仓库就会发现已经复制下来了</p>
+</li>
+<li><p>点击code,复制仓库的http链接</p>
+</li>
+<li><p>在电脑上新建文件夹,打开终端,然后输入:git clone 你的仓库链接 .(把网盘上的仓库克隆到本地电脑)</p>
+</li>
+<li><p>查看建立连接发现连接的是自己的,使用命令</p>
+</li>
+<li><p>git clone add upstream 别人的仓库链接:添加上游命令,再remote -v看一下就有了</p>
+</li>
+<li><p>使用git checkout -b kwc来创建并切换进入kwc的分支</p>
+</li>
+<li><p>之后创建文件夹,创建文件,写入文件内容,add .,commit -m “add(number):康文昌”,push -u origin kwc,回到自己的仓库,就发现已经有这个分支了</p>
+</li>
+<li><p>这时候就来re01的仓库,点pull request:拉取请求,简称PR,进去之后点new,新建pr,这里base就是根源,选择re01的main分支,compare就是比较,选择自己刚刚创建的分支,选择后如果显示绿色对号able to merge就是可以合并的意思,那就填写pr信息:标题,内容,下面点击create创建pr,就提交成功了,这就代表参与了开源项目</p>
+</li>
+<li><p>如果没有显示对号,那就代表up提交了新的commit,导致版本不一致,这时就需要更新本地版本,</p>
+</li>
+<li><p>git fetch upstream:从上游更新最新代码</p>
+</li>
+<li><p>然后执行:git merge upstream&#x2F;main,把远程的最新代码合并到自己的分支中,再git push就好了</p>
+</li>
+</ul>
+</li>
+<li><p>问题记录</p>
+<ul>
+<li><p>ssh连接除了好几次错误：先是22端口拒绝连接，然后我去搜，最后发现电脑只有ssh客户端，没有ssh服务器，然后下了似乎又说真实性，yes&#x2F;no什么的，这里又搜了一下，是要输yes，我的443端口没问题，不是防火墙的原因，好像少了一个kown_hosts文件</p>
+</li>
+<li><p>类似下图的错误，反正yes着yes着的、差不多就好了</p>
+</li>
+</ul>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -412,7 +577,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/Cesteo.github.io/about" rel="external nofollow noreferrer">曹光友</a>
+                    <a href="/Cesteo.github.io/about" rel="external nofollow noreferrer">Cesteo</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -422,7 +587,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</a>
+                    <a href="https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/03/Git-Learning/">https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/03/Git-Learning/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -435,7 +600,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/Cesteo.github.io/about" target="_blank">曹光友</a>
+                    <a href="/Cesteo.github.io/about" target="_blank">Cesteo</a>
                     !
                 </span>
             </div>
@@ -459,7 +624,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/Cesteo.github.io/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -536,9 +705,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/Cesteo.github.io/2023/12/03/Git-Learning/">
                     <div class="card-image">
@@ -555,9 +725,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -570,6 +740,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -588,13 +759,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Cesteo.github.io/2023/12/02/hello-world/">
+                <a href="/Cesteo.github.io/2023/12/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/Cesteo.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/Cesteo.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="我的第一篇博客">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">我的第一篇博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -605,7 +776,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
                             </span>
                         <span class="publish-author">
                             
