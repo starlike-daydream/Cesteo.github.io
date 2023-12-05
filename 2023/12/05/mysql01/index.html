@@ -1,0 +1,1972 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL01, Study Computer Coder">
+    <meta name="description" content="database的学习笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL01 | Cesteo&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/Cesteo.github.io/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/css/my.css">
+<link rel="stylesheet" type="text/css" href="/Cesteo.github.io/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/Cesteo.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/Cesteo.github.io/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/Cesteo.github.io/css/reward.css">
+    
+
+
+
+    <script src="/Cesteo.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/Cesteo.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="/Cesteo.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Cesteo&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/Cesteo.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Cesteo&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            A website with articles for saving what and how I study,welcome!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/Cesteo.github.io/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL01</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/Cesteo.github.io/tags/database/">
+                                <span class="chip bg-color">database</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                Computer Learning
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li><p>01.MySQL课程介绍</p>
+<ul>
+<li><p>上一章的案例是根据xml文件来存储数据的，但是开发中会采用专业的数据库来存储数据</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/1c2f34f4-def7-4475-ad87-d917ab11a244-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>什么是数据库？</p>
+<ul>
+<li><p>数据库：DataBase（DB），是存储和管理数据的仓库。</p>
+</li>
+<li><p>例如CRM系统，想要修改数据，不需要动前端和服务端，只需要修改数据库中的数据即可（JavaEE–&gt;JavaEE入门到起飞）</p>
+<ul>
+<li><p>1.改之前+修改操作<img src="https://api2.mubu.com/v3/document_image/5359b65e-a7cc-418b-8358-7dfd681d84a1-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.改之后<img src="https://api2.mubu.com/v3/document_image/95209ff6-11de-4a77-8843-130666c71b7d-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>数据库管理系统：DataBase Management System（DBMS），操纵和管理数据库的大型软件。</p>
+</li>
+<li><p>SQL：Structure Query Language（结构化查询语言），操作关系关系型数据库的编程语言，定义了一套操作关系数据库统一标准。</p>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/5273b812-8f9b-4df9-bcd7-65102483cbbb-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据库产品（不用担心没学其他数据库，因为这些关系型数据都是通过SQL语句操作的）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/6679b198-f924-4867-a4cb-3bb829114b64-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>MySQL数据库课程安排</p>
+<ul>
+<li>索引是数据库优化的重要手段，具体的优化需要结合项目实践<img src="https://api2.mubu.com/v3/document_image/c938133f-f43b-4b9e-ac1a-a764d06ae709-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>02.MySQL概述</p>
+<ul>
+<li><p>安装、配置</p>
+<ul>
+<li><p>1.下载</p>
+<ul>
+<li><p>1.安装社区版</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/a3857cb5-895e-4b95-a2a1-e1c53aecf6ee-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>2.访问官网，安装MySQL Community Server的Other Download的第一条（我下的是8.0.34），然后参照课程资料的MySQL安装文档</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/c7caa9d9-7baa-4211-ab1c-76db1e7b64b0-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2.解压：解压到没有中文和空格的目录</p>
+</li>
+<li><p>3.配置</p>
+<ul>
+<li><p>1.添加环境变量：</p>
+<ul>
+<li><p>配置环境变量：在系统变量新建MYSQL_HOME，指定解压目录，再在PATH环境变量添加%MYSQL_HOME%\bin</p>
+</li>
+<li><p>验证配置成功：以管理员身份运行命令行，敲入mysql，回车，提示：Can’t connect to MySQL server on ‘<a target="_blank" rel="noopener" href="http://localhost:3306/">localhost:3306</a>‘的信息则说明配置成功</p>
+</li>
+</ul>
+</li>
+<li><p>2.初始化MySQL</p>
+<ul>
+<li>在管理员命令行运行指令：mysqld –initialize-insecure，之后会在解压目录生成一个data文件夹用于存放mysql的数据</li>
+</ul>
+</li>
+<li><p>3.注册MySQL服务</p>
+<ul>
+<li><p>在管理员命令行运行指令：mysqld –install，回车（一定要用管理员身份）</p>
+</li>
+<li><p>开始菜单，输入“服务”，找到系统服务，看的MySQL一栏，说明MySQL已经注册为了系统服务，并且已经设置为了开机自动启动<img src="https://api2.mubu.com/v3/document_image/29799a8f-077f-4f34-9768-eccaf32db118-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>4.启动MySQL服务：</p>
+<ul>
+<li><p>在黑框敲入：net start mysql，回车<img src="https://api2.mubu.com/v3/document_image/40c83443-443f-4277-90a5-8725221acea5-8085313.jpg" alt="img"></p>
+</li>
+<li><p>停止MySQL服务：net stop mysql</p>
+</li>
+</ul>
+</li>
+<li><p>5.修改默认账户密码</p>
+<ul>
+<li>黑框敲入mysqladmin -u root password 1234，这里的1234就是指默认管理员（即root账户）的密码，可以自行修改（提示一条不安全警告则代表修改成功）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>四、登录MySQL</p>
+<ul>
+<li><p>黑框输入mysql -uroot -p1234（-u指定用户名username，-p指定密码password），出现下图且左下角为mysql&gt;，则登陆成功</p>
+</li>
+<li><p>登录成功的警告信息是告诉我们在命令行显示的输出密码不安全，别人一眼就能看到，这样别人就能登陆你的数据库操作数据了，很危险</p>
+</li>
+<li><p>2.在黑框输入exit退出mysql，输入mysql -uroot -p（不用写密码）<img src="https://api2.mubu.com/v3/document_image/1cf48c52-6c77-40fd-9784-bbe73bc7cf11-8085313.jpg" alt="img"></p>
+</li>
+<li><p>在下一行的提示输入密码：1234，此时会用星号*隐藏你的密码，保证密码的安全性</p>
+</li>
+</ul>
+</li>
+<li><p>五、卸载MySQL：自行参照文档</p>
+</li>
+<li><p>MySQL链接：语法:mysql -u用户名 -p密码 [-h数据库服务器IP地址 -P端口号]（后面两个参数不指定默认是本机IP127.0.0.1和mysql默认端口号3306）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/0c8eb4ac-ede6-4668-a653-0ba0591d2b91-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>其实以后进入公司，数据库安装在服务器中，而且放在很稳无湿无尘配备完善网络系统、电力系统的机房稳定运行的（以便多人共享访问），这时需要MySQL的客户端远程链接这台MySQL服务器，并且项目组的其他开发人员也在连接这台MySQL服务器<img src="https://api2.mubu.com/v3/document_image/bf3fdce4-3e99-408d-b8bb-95049a76d7b0-8085313.jpg" alt="img"></p>
+</li>
+<li><p>在学习阶段，我们可以通过虚拟机软件vmware体验这样的企业开发方式，而且服务器其实就是一款虚拟机，我们可以在电脑安装vmware虚拟机，并且用虚拟机虚拟出一台服务器，再在虚拟机安装开发所需的各种软件<img src="https://api2.mubu.com/v3/document_image/4e9a6205-de09-40c0-a960-3336d4bded01-8085313.jpg" alt="img"></p>
+</li>
+<li><p>连接远程服务器的MySQL：mysql -h指定我们数据库的IP地址 -P3306（端口号） -uroot（指定连接的用户名是root） -p123（root对应密码）<img src="https://api2.mubu.com/v3/document_image/769026b1-93ec-4917-babd-96361b5ab977-8085313.jpg" alt="img"></p>
+</li>
+<li><p>为了操作更加方便，我们使用本机的MySQL，企业的开发使用方式先做了解即可</p>
+</li>
+</ul>
+</li>
+<li><p>MySQL数据模型</p>
+<ul>
+<li><p>关系型数据库（RDBMS）：建立在关系模型基础上，由多张相互链接的二维表组成的数据库。</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/32b358ae-f1bb-4351-810c-2b34520a20f2-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>特点1：使用表存储数据，格式统一，便于维护</p>
+</li>
+<li><p>特点2：使用SQL语言操作，标准统一，使用方便，可用于复杂查询</p>
+</li>
+<li><p>创建数据库语法：create database db01（数据库名字）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/7448aa1e-4ce1-4036-aef2-fddcc01f8519-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>创建数据库，可以在一个数据库创建多张表，一张表又可以创建多条数据，创建表之后会在数据库下产生一个磁盘文件</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/311dbfb0-e709-448d-9a86-69261ebd1afd-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SQL简介</p>
+<ul>
+<li><p>SQL：一门操作关系数据库的编程语言，定义所有关系型数据库的统一标准。</p>
+</li>
+<li><p>通用语法：</p>
+<ul>
+<li><p>1.SQL语句可以单行或多行书写，以分号结尾。（show databases;）</p>
+</li>
+<li><p>2.SQL语句可以使用空格&#x2F;缩进来增强语句的可读性。(show        databases;)</p>
+</li>
+<li><p>3.MySQL数据库的SQL语句不区分大小写。(SHOW DATABASES;)</p>
+</li>
+<li><p>4.注释：– 注释内容 (注意：有空格)或 # 注释内容（MySQL特有）(– show database;)</p>
+<ul>
+<li>2.多行注释：&#x2F;* 注释内容 <em>&#x2F;       (&#x2F;</em> show database; *&#x2F;)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SQL分类</p>
+<ul>
+<li><p>DDL（Data Defination Language）：数据定义语言，用来定义数据库对象（数据库，表，字段）</p>
+</li>
+<li><p>DML（Data Manipulation Language）：数据操作语言，用来对数据库表中的数据进行增删改查</p>
+</li>
+<li><p>DQL（Data Query Language）：数据查询语言，用来查询数据库中表的记录</p>
+</li>
+<li><p>DCL（Data Control Language）：数据控制语言，用来控制语言，用来创建数据库用户，控制数据库的访问权限</p>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/fcf499c2-e500-432a-abd6-8560634090ec-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>小结</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/bd4b199f-6681-4ce5-9a61-b2642fabc2a7-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>03.MySQL-DDL</p>
+<ul>
+<li><p>开发一个项目的流程：根据开发文档和项目原型设计</p>
+<ul>
+<li><p>1.数据库设计：分析各个模块涉及的表结构以及表结构之间的关系以及表结构的详细信息</p>
+</li>
+<li><p>2.编码设计一个个功能，并操作第一步设计的数据库表结构完成业务的增删改查</p>
+</li>
+<li><p>3.项目完成后：优化-数据库优化：索引的建立，SQL的优化，分库分表等操作</p>
+</li>
+<li><p>图示<img src="https://api2.mubu.com/v3/document_image/656c0e23-5a94-4209-bf96-da6da33edf99-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>DDL：DDL英文全称是Data Defination Language，数据定义语言，用来定义数据库对象（数据库、表）。</p>
+</li>
+<li><p>数据库</p>
+<ul>
+<li><p>图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/4e6159f0-433f-48df-9c87-9988ba03668a-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>查询：</p>
+<ul>
+<li><p>查询所有数据库：show databases;</p>
+<ul>
+<li>上面的第一个是刚刚创建的数据库，下面四个是系统数据库，不要去操作（需要分号结束！）<img src="https://api2.mubu.com/v3/document_image/94500f68-83de-4580-aea6-1ac8d607bcb0-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>查询当前数据库：select database();</p>
+<ul>
+<li>忘了当前在操作的数据库，就可以用这个<img src="https://api2.mubu.com/v3/document_image/ffe0d9a2-192f-47d2-b885-4502f8ea0228-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用：使用数据库：use 数据库名;</p>
+<ul>
+<li>出现数据库切换，则代表使用成功<img src="https://api2.mubu.com/v3/document_image/4b6396c5-0ed9-4f7b-9429-8eeb0e213779-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>创建：创建数据库：create database [ if not exists ] 数据库名;</p>
+<ul>
+<li><p>数据库是不能重名的，创建了同名数据库会报错<img src="https://api2.mubu.com/v3/document_image/640e6131-8d2b-49cc-bd08-a751ec87928a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>加上可选项if not exists，如果数据库存在就不会执行任何操作，也不会报错，<img src="https://api2.mubu.com/v3/document_image/66c83940-a558-4b59-a3a8-b60f0fc80d26-8085313.jpg" alt="img"></p>
+</li>
+<li><p>如果数据库不存在就创建数据<img src="https://api2.mubu.com/v3/document_image/6d0594eb-74b8-404c-96dc-5429f9fc6276-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>删除：删除数据库：drop database [ if exists ] 数据库名;</p>
+<ul>
+<li><p>图示<img src="https://api2.mubu.com/v3/document_image/9f625955-32ac-4740-9573-03b78c411add-8085313.jpg" alt="img"></p>
+</li>
+<li><p>如果要删除的数据库不存在就会报错，加上可选项if exists就不会报错，也不执行任何操作<img src="https://api2.mubu.com/v3/document_image/19c744cd-f4ca-4a21-b122-860bbfad947c-8085313.jpg" alt="img"></p>
+</li>
+<li><p>如果要删除的数据库存在就删除它<img src="https://api2.mubu.com/v3/document_image/593d6e2b-548f-419b-a336-e12ba8435647-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>注意事项：上述语法中的database，也可以替换成schema。如：create schema dab01;</p>
+</li>
+</ul>
+</li>
+<li><p>图形化工具</p>
+<ul>
+<li><p>之前的命令行敲SQL语句，没有提示，错一个字符也不行，不会保存SQL语句历史记录，用户体验差<img src="https://api2.mubu.com/v3/document_image/322775d0-2150-4644-bca8-f50f17698c98-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我们要使用的DataGrip已经在IDEA中集成了<img src="https://api2.mubu.com/v3/document_image/cdd9a2cd-1595-4d36-ad55-6c91b24a1c9a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>IDEA右侧有一栏Database就是用来操作数据库的，点击左上角加号连接数据库，选择Data Source以选择操作的数据库-&gt;MySQL<img src="https://api2.mubu.com/v3/document_image/2821f756-604c-449e-9b4d-bd1f704d76c5-8085313.jpg" alt="img"></p>
+</li>
+<li><p>弹出相关窗口后输入数据库连接的相关信息：Host指定连接的数据库：<a target="_blank" rel="noopener" href="http://localhost/">localhost</a>指定本机端口号，Port端口号3306，User填写用户名，Password填写密码<img src="https://api2.mubu.com/v3/document_image/8b6d7fa5-bed9-4240-bdd5-314d6276db89-8085313.jpg" alt="img"></p>
+</li>
+<li><p>填写完毕后，点击Test Connection测试能否连接MySQL，第一次连接需要点击Download按钮下载数据库连接的驱动，测试成功后可以点击OK创建出一个数据库连接</p>
+</li>
+<li><p>如果database的位置放在右边不太习惯，可以左键拖动放在左边的框<img src="https://api2.mubu.com/v3/document_image/80c8387e-cbc0-422f-8094-6f7f23b1678d-8085313.jpg" alt="img"></p>
+</li>
+<li><p>最初只展示了一个数据库，点击1of5可以选择现实的数据库，All schemas选择所有数据库</p>
+</li>
+<li><p>连接创建之后会自动打开console控制台，可以执行SQL语句，选择语句点击绿色三角形或按crtl+enter执行选中语句（右击<a target="_blank" rel="noopener" href="http://localhost/">localhost</a>–&gt;new–&gt;console新建控制台）<img src="https://api2.mubu.com/v3/document_image/17cd6da8-099e-4361-bdc5-6ff3d91c428c-8085313.jpg" alt="img"></p>
+</li>
+<li><p>但有了图形化软件，之间可以在右侧查看数据，右击<a target="_blank" rel="noopener" href="http://localhost/">localhost</a>–&gt;new–&gt;schema新建数据库（其实还是执行SQL语句），<img src="https://api2.mubu.com/v3/document_image/e98fd1d6-b0a4-428f-985c-9bc89876d490-8085313.jpg" alt="img"></p>
+</li>
+<li><p>右击数据库选择Drop删除数据库（也是执行SQL语句）</p>
+</li>
+<li><p>切换数据库也不用use语句了，点击右上角的schema，选择要切换的数据库即可<img src="https://api2.mubu.com/v3/document_image/bf7fdd87-0985-4f86-a7ac-ae8a0697aea4-8085313.jpg" alt="img"></p>
+</li>
+<li><p>下方的output栏可以看到已执行的SQL语句记录<img src="https://api2.mubu.com/v3/document_image/ec7f4ef1-68d9-4baa-a1b0-8cede86b723c-8085313.jpg" alt="img"></p>
+</li>
+<li><p>找到之前的查询控制台：右击<a target="_blank" rel="noopener" href="http://localhost/">localhost</a>，选择Navigation，再选择Jump to Query Console，下方的console就是之前的查询控制台，点击即可进入之前的SQL控制台，保留了之前的历史记录，右击控制台可以Rename重命名查询控制台</p>
+</li>
+</ul>
+</li>
+<li><p>表结构操作</p>
+<ul>
+<li><p>创建：create table 表名(字段1 字段类型  [ 约束 ] [ comment 字段1注释],….,字段n 字段类型  [ 约束 ] [ comment 字段n注释])[comment 表注释];（方括号是可选的，可以加，也可以不加）</p>
+<ul>
+<li><p>varchar(20)是mysql的字符串，括号里指定字符串最地盘存储为多少位，char(1)存储单个字符<img src="https://api2.mubu.com/v3/document_image/64cdc44a-1b7a-4ec0-9184-5c90030921ca-8085313.jpg" alt="img"></p>
+</li>
+<li><p>最后一个字段不能加逗号，会报错</p>
+</li>
+<li><p>选择的是数据库db01，表就会创建在db01数据库下<img src="https://api2.mubu.com/v3/document_image/db902bcd-51f0-4163-a554-e8c842b1f630-8085313.jpg" alt="img"></p>
+</li>
+<li><p>双击点开表，点击加号add row添加数据，输入数据后，点击submit，数据就会提交到数据库<img src="https://api2.mubu.com/v3/document_image/af69f26c-4210-444a-948b-47da50bda16a-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>约束</p>
+<ul>
+<li><p>我们想要id为唯一标识，但是它默认是可以重复的，这时候就需要用到约束</p>
+</li>
+<li><p>概念：约束是作用在表中字段上的规则，用于限制存储在表中的数据。</p>
+</li>
+<li><p>目的：保证数据库中数据的正确性，有效性和完善性。</p>
+</li>
+<li><p>非空约束–not null：限制该字段不能为null<img src="https://api2.mubu.com/v3/document_image/778a11b0-6d61-4593-b334-64809b60f245-8085313.jpg" alt="img"></p>
+</li>
+<li><p>唯一约束–unique：保证字段所有的数据都是唯一、不重复的</p>
+<ul>
+<li>重复的键提交会报错，duplicate是重复的意思<img src="https://api2.mubu.com/v3/document_image/cebab062-133c-4b88-a505-54aa33d392bb-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>主键约束–primary key(auto_increment)：主键是一行数据的唯一标识，要求非空且唯一（添加关键字auto_increment主键就会自动增长，按照最大id增长</p>
+<ul>
+<li><p>双击修改单个字段，主键值相同，重复同样会报错<img src="https://api2.mubu.com/v3/document_image/25ec4146-336c-4159-a813-f85b25745f8a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>generated即代表自动生成<img src="https://api2.mubu.com/v3/document_image/02f7da87-693d-4d49-940d-50f0a9ae853f-8085313.jpg" alt="img"></p>
+</li>
+<li><p>根据当前表的最大id自增<img src="https://api2.mubu.com/v3/document_image/b68f9fdb-8989-4834-8bd0-dd4823230caf-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>默认约束–default：保存数据时，如果未指定该字段，则采用默认值（设定默认值）</p>
+<ul>
+<li>未编辑性别提交<img src="https://api2.mubu.com/v3/document_image/a6f83f59-f034-4139-b48b-49d688ded501-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>外键约束–foreign key：让两张表的数据建立连接，保证数据的一致性和完整性（至少需要两张表才能操作）</p>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/9efb50f7-0d8c-48aa-9339-d84e05fc87ba-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据类型</p>
+<ul>
+<li><p>MySQL中的数据类型有很多，主要分为三类：数值类型，字符串类型，日期时间类型。</p>
+</li>
+<li><p>数值类型:</p>
+<ul>
+<li><p>age tinyint unsigned;（年龄没有负数，节省内存而选择一字节的tinyint）score double(4,1)（总共4位数字，一位小数位）</p>
+</li>
+<li><p>尽可能在业务运行的情况下选择占用磁盘小的数据类，只要能满足需求即可，这样就可以节省磁盘空间</p>
+</li>
+<li><p>用得较多的是tinyint，int，bigint，浮点数用的较多的是double，如果涉及到金额计算，不允许出现精度损失（像是Java的BigDecimal，对精度要求比较高），就用decimal</p>
+</li>
+</ul>
+</li>
+<li><p>字符串类型：</p>
+<ul>
+<li><p>char(10)最多只能存10个字符，如果不是十个字符，也按照十个字符存储；</p>
+</li>
+<li><p>varchar(10)最多只能存10个字符，如果不是十个字符，按照实际长度（需要时间判断字符个数）（字符个数）存储；</p>
+</li>
+<li><p>blob存储二进制数据，比如说要存储视频，音频就可以用blob后缀的数据类型，但在真实的企业开发中，音视频不会直接存储在数据库中，而会存储在专业的文件服务器，所以比较少用</p>
+</li>
+<li><p>text存储文本字符串，比如说长篇小说，就可以使用带text后缀的类型</p>
+</li>
+<li><p>示例：phone char(11)（手机号只有11位的）,username varchar(20)（用户名长度不确定）</p>
+</li>
+</ul>
+</li>
+<li><p>日期时间类型</p>
+<ul>
+<li>示例：birthday date（仅仅需要记录时间）,update_time（最后一次操作，需要记录详细时间）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>案例：根据页面原型&#x2F;需求创建表（设计合理的数据类型、长度、约束）</p>
+<ul>
+<li><p>需求：资料中的员工管理系统，右边还给出了详细的描述信息<img src="https://api2.mubu.com/v3/document_image/ce6dbd0c-2a7c-43d5-b87d-10e7d98876a8-8085313.jpg" alt="img"></p>
+</li>
+<li><p>实际开发中，必须要掌握图形化操作，这里采用图形化操作创建表</p>
+</li>
+<li><p>我的界面不太一样，但大致相同，选择带有old UI的选项就和老师的一样了（点击汽包设置注释）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/b7e22cd9-ae37-4ede-9d73-08cab920abb4-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>tips(归属部门现阶段暂不考虑)</p>
+<ul>
+<li><p>1.创建表基本有一个递增的主键id，创建时间ctreate_time，修改时间update_time</p>
+</li>
+<li><p>2.性别的男和女一般不写在数据库中，而用1和2表示，因为可能会有男士女士等其他表达，并且使用无符号微小整形以节省内存</p>
+</li>
+<li><p>3.可选择的下拉列表选项，在数据库的存储也用1234代表</p>
+</li>
+<li><p>4.图像存储的是图像的url，所有这里用varchar存储</p>
+</li>
+</ul>
+</li>
+<li><p>设计表的基本流程<img src="https://api2.mubu.com/v3/document_image/a6e749c8-0865-4632-977c-6790d662e18e-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>查询</p>
+<ul>
+<li><p>查询当前数据库所有表：show tables;(在图形化界面用的少了，左边一目了然)<img src="https://api2.mubu.com/v3/document_image/7953061e-2f5f-4477-8fab-5f3a01412cf9-8085313.jpg" alt="img"></p>
+</li>
+<li><p>查询表结构：desc 表名;（图形化界面用的少了，在表的左侧）<img src="https://api2.mubu.com/v3/document_image/296750b6-40d1-4105-bdaf-048055d0f2e9-8085313.jpg" alt="img"></p>
+</li>
+<li><p>查询建表语句：show create table 表名;（双击展开）</p>
+<ul>
+<li>点击表右键选择edit source也能看到这张表的建表语句（我是右击选择Navigation，选择Go to DDL）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>修改（Modify table双击字段修改）</p>
+<ul>
+<li><p>添加字段：alter table 表名 add 字段名 类型(长度) [comment 注释] [约束];（加号）</p>
+</li>
+<li><p>修改字段类型：alter table 表名 modify 字段名 新数据类型(长度);</p>
+</li>
+<li><p>修改字段名和字段类型：alter table 表名 change 旧字段名 新字段名 类型(长度) [comment 注释] [注释];</p>
+</li>
+<li><p>删除字段：alter table 表名 drop column 字段名;（减号）</p>
+</li>
+<li><p>修改表名：rename table 表名 to 表名;（右键表选择Rename）</p>
+</li>
+<li><p>代码图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/bb6d9792-c26e-4864-b94c-cda49f7acf4c-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>图形化页面</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/fa5a380d-24d5-42c9-8aee-bb7e00ff22b2-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>删除：drop table [ if exists ] tb_emp;（右击表选择删除）</p>
+<ul>
+<li><p>先复制建表语句，删除该表，再执行复制的建表语句可以保留删除的表</p>
+</li>
+<li><p>在删除表时，表中的全部数据也会被删除。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>小结</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/e5073d1b-175e-438c-8f32-607f901f19fa-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>04.MySQL-DML</p>
+<ul>
+<li><p>第二个部分：根据页面原型以及需求进行相关功能开发进行数据库的操作</p>
+</li>
+<li><p>需求：（打开资料中的登录.html查看），当添加数据时，前端会提交一个表单，我们就需要把表单中多个数据添加到数据库</p>
+</li>
+<li><p>DML英文全称是Data manipulation Luaguage (数据操作语言)，用来对数据库中表的数据进行增、删、改操作。</p>
+</li>
+<li><p>INSERT（添加数据）</p>
+<ul>
+<li><p>1.指定字段添加数据：insert into 表名(字段名1,字段名2) values(值1,值2);</p>
+<ul>
+<li>在刚刚的员工管理表中，直接添加username，name，gender的字段会报错，是因为之前的create_time，update_time设置了非空，用MySQL的函数now()为他们赋值即可<img src="https://api2.mubu.com/v3/document_image/8210b628-a0de-4151-92c6-44baeacfe86a-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>2.全部字段添加数据：insert into 表名 values(值1,值2,…);</p>
+<ul>
+<li><p>在为所有字段添加数据时，可以一一罗列出所有字段（输入第一个字段IDEA会提示），也可以不指定字段<img src="https://api2.mubu.com/v3/document_image/cc7ba9fa-4e6e-4152-b6cd-dbcdd39520a2-8085313.jpg" alt="img"></p>
+</li>
+<li><p>日期也用引号包裹起来，用字符串进行存储</p>
+</li>
+<li><p>主键ID可以设置为空，因为它是自增的</p>
+</li>
+</ul>
+</li>
+<li><p>3.批量添加数据（指定字段）：insert into 表名 (字段名1,字段名2) values (值1,值2),(值1,值2);</p>
+<ul>
+<li>就是单个添加数据再加上逗号括号，括号里另一条数据,(…)<img src="https://api2.mubu.com/v3/document_image/afaea8aa-f166-481f-bd7c-3b759b4aedcf-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>4.批量添加数据（全部字段）：insert into 表名 values(值1,值2,…),(值1,值2,…);</p>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li><p>1.插入数据时，指定的字段顺序需要与值的顺序是一一对应的。</p>
+</li>
+<li><p>2.字符串和日期类型的数据应该包含在引号中。</p>
+</li>
+<li><p>3.插入的数据大小，应该在字段规定的范围内。<img src="https://api2.mubu.com/v3/document_image/291c3e80-382a-420f-ad63-e297b7952e21-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/be7d678f-d9d6-4132-8bed-a4f63203c214-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>UPDATE（更新数据）</p>
+<ul>
+<li><p>修改数据：update 表名 set 字段名1 &#x3D; 值1 , 字段名2 &#x3D; 值2 , …[ where 条件];</p>
+</li>
+<li><p>页面原型需求：修改数据时，先根据ID将数据查询出来，再在页面中展示出来，这个操作也叫数据回显，再选择数据进行修改<img src="https://api2.mubu.com/v3/document_image/b60c2981-b844-4ec5-a366-beb77cca4f3d-8085313.jpg" alt="img"></p>
+</li>
+<li><p>需求<img src="https://api2.mubu.com/v3/document_image/d80027a5-0635-42df-ac11-c3c80dba3018-8085313.jpg" alt="img"></p>
+</li>
+<li><p>tips：1.修改数据的同时还需要修改更新时间update_time为now()2.不加where修改表中全部数据会出现黄色的警告条，点击excute继续执行即可<img src="https://api2.mubu.com/v3/document_image/73244830-1407-470e-b685-ff96507999ad-8085313.jpg" alt="img"></p>
+</li>
+<li><p>ppt图示<img src="https://api2.mubu.com/v3/document_image/b5cb1378-eb78-4e15-a976-40d14e011466-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>DELETE（删除数据）</p>
+<ul>
+<li><p>业务场景：页面原型中表格的一项操作就是删除，当点击删除时，就会往服务端发送请求来指定删除哪一条数据，服务端接收到请求后就会操作数据库执行delete语句删除数据</p>
+</li>
+<li><p>delete语法（删除数据）：delete from 表名 [ where 条件 ];</p>
+</li>
+<li><p>需求<img src="https://api2.mubu.com/v3/document_image/22a4073a-ad47-4bf1-aa8b-47f933558ae3-8085313.jpg" alt="img"></p>
+</li>
+<li><p>代码<img src="https://api2.mubu.com/v3/document_image/a9c31ff5-6a0c-438f-a1c4-eadd64f6c30d-8085313.jpg" alt="img"></p>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li><p>1.DELETE语句的条件可以有，也可以没有，如果没有条件，则会删除整张表的数据。（慎重操作）</p>
+</li>
+<li><p>2.DELETE语句不能删除某一个字段的一个值（如果要操作，可以使用UPDATE，将该字段的值置为NULL）。</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示<img src="https://api2.mubu.com/v3/document_image/ac173ec8-caaf-4ba0-afe5-ec96366ef8b6-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>小结</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/75daf552-26ac-4890-b5f1-ea505b3994c3-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>05.MySQL-DQL</p>
+<ul>
+<li><p>DQL英文全称是Data Query Language(数据查询)语言）,用来查询数据库表中的记录。</p>
+</li>
+<li><p>关键字：SELECT</p>
+</li>
+<li><p>重要性：查询这个操作是数据库中最常见、重要的操作，一个正常的业务系统中，查询基本可以占据90%以上</p>
+<ul>
+<li><p>1.比如说CRM系统，每次点击左边的菜单栏都会发起一次或多次查询操作，点击课程管理菜单后会显示课程相关数据信息，前端只负责将数据以好看的样式展示出来，最终的数据都是在数据库中存储和管理的(比如课程中的一条数据对应着数据库表结构当中的一条记录，当我们点击课程管理菜单后，就可以将数据库表结构中的数据查询出来)<img src="https://api2.mubu.com/v3/document_image/063038da-0204-4253-a98c-7a202635343a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.页面也允许用户在上面根据条件查询（比如在课程名称中输入Java，就可以查询出课程名称中含有Java关键字的课程，添加条件适用人群为小白学员，就可查询到对应数据,也可查询时间范围，对数据排序，分页展示数据加快页面加载速度，同时提高了用户使用体验）<img src="https://api2.mubu.com/v3/document_image/4ac0f5e2-a604-41e0-9aa4-086af80d3197-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<ul>
+<li><p>select 字段列表 from 表名列表 where 条件列表 group by 分组字段列表 hanving 分组后条件列表 order by 排序字段列表 limit 分页参数</p>
+</li>
+<li><p>基本查询：select 字段列表 from 表名列表（字段列表代表我们要查询表中的哪些字段，字段之间用逗号分隔，from后面跟上表名列表，也就是说我们可以从多张表中进行查询）</p>
+</li>
+<li><p>条件查询（where）：在基本查询后面可以加上where，where后面跟上条件列表（可以有多个条件）</p>
+</li>
+<li><p>分组查询（group by）：group by跟上要分组的字段，如果分组之后还要进行条件的筛选，还需要加上关键字having，having之后加的是分组的条件</p>
+<ul>
+<li>比如有一张员工表，里面有一个字段是gender性别，要想知道男性员工和女性员工各有多少人，就可以用性别字段进行分组，分完组之后再统计男性女性个多少人</li>
+</ul>
+</li>
+<li><p>排序查询（order by）：order by后跟上排序的字段（支持对多个字段进行排序）</p>
+</li>
+<li><p>分页查询（limit）：在sql语句的后面加上一个关键字limit，limit之后跟上分页参数</p>
+</li>
+</ul>
+</li>
+<li><p>准备测试数据：数据库db03下操作，新建控制台mysql_02，资料DQL第一个sql脚本双击打开（其中是上节课的表，插上许多数据），cv到idea，全选执行在db02创建一张表，含29条数据</p>
+</li>
+<li><p>DQL-基本查询</p>
+<ul>
+<li><p>语法</p>
+<ul>
+<li><p>查询多个字段：select 字段1,字段2,字段3 from 表名;</p>
+</li>
+<li><p>查询所有字段（通配符）：select * from 表名;（不推荐：1.不直观，2.性能低）</p>
+</li>
+<li><p>设置别名：select 字段 [ as  别名1 ], 字段2 [ as 别名2 ] from 表名;（不需要写方括号，只代表可选）</p>
+</li>
+<li><p>去除重复记录：select distinct 字段列表 from 表名;</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/fe110f67-cd9c-4d53-9228-630d5101e794-8085313.jpg" alt="img"></p>
+</li>
+<li><p>自己写的<img src="https://api2.mubu.com/v3/document_image/43f12c26-62b7-48b3-8685-46598d6a6f31-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的（工作几种？最后的null代表还没有分配职位，职位一共有四种）<img src="https://api2.mubu.com/v3/document_image/76bfaec1-9b07-424e-99fc-f4314d1249c3-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips：</p>
+<ul>
+<li><p>1.写好select 查询的字段之后会报错，不用管，因为没有表名，他不知道指定的字段存不存在，写好from加表名就不会报错了，这些字段已经被识别出来了</p>
+</li>
+<li><p>2.要写多个或所有字段的话可以先打出selrct from 表名;然后再打字段列表，这样就会有字段和全部字段的提示。</p>
+</li>
+<li><p>3.以后写项目要查询所有字段推荐写select 字段1,字段2,….. from 表名（先打出后面的），而不推荐select * from 表名：1.不直观2.性能低（课上节省时间会使用*）</p>
+</li>
+<li><p>4.起别名的as可以省略，但是别名中如果有空格或者特殊符号需要给别名加上引号（单引号&#x2F;双引号）</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/cd736532-283d-476c-8e1f-f9c44e004a1e-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DQL-条件查询</p>
+<ul>
+<li><p>语法—条件查询：select 字段列表 from 表名 where 条件列表;</p>
+</li>
+<li><p>条件列表的条件可以有多个，学习条件查询主要就是学会条件的构建方式，并且SQL语句中构建条件的运算符有很多，主要分为比较运算符和逻辑运算符</p>
+</li>
+<li><p>比较运算符</p>
+<ul>
+<li><p>&gt;：大于，&gt;&#x3D;：大于等于，&lt;：小于，&lt;&#x3D;：小于等于</p>
+</li>
+<li><p>&lt;&gt; 或  !&#x3D; ：不等于，&#x3D;：等于</p>
+</li>
+<li><p>between … and … ：在某个范围之内（含最小、最大值）（between后跟上最小值，and后跟上最大值）</p>
+</li>
+<li><p>in(…)：在in之后的列表中的值，多选一</p>
+</li>
+<li><p>like 占位符：模糊匹配（_匹配单个字符，%匹配任意个字符）</p>
+</li>
+<li><p>is null：是null</p>
+</li>
+</ul>
+</li>
+<li><p>逻辑运算符：</p>
+<ul>
+<li><p>and 或 &amp;&amp;：并且（多个条件同时成立）</p>
+</li>
+<li><p>or 或 || ：或者（多个条件任意一个成立）</p>
+</li>
+<li><p>not 或 ! ：非，不是</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/de2cec54-d1ab-4559-bc32-5222bb14f8b4-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/6ad36574-8b67-4437-8ad5-b60daebf45ac-8085313.jpg" alt="img"></p>
+</li>
+<li><p>代码（我的和老师的大差不差）<img src="https://api2.mubu.com/v3/document_image/980026a9-7163-4d4c-853c-d709e9e8b3ef-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips</p>
+<ul>
+<li><p>1.select * from tb_emp where name &#x3D; ‘杨逍’;因为name是字符串，所以杨逍也要用引号引起来</p>
+</li>
+<li><p>2.null只能用is判断，而不像其他数据类型用&#x3D;判断</p>
+</li>
+<li><p>3.查询结果显示台可以看到查询到数据的条数<img src="https://api2.mubu.com/v3/document_image/fdcdefb4-e3d0-4cb3-ab18-fbfefcc3e629-8085313.jpg" alt="img"></p>
+</li>
+<li><p>4.并列条件and和&amp;&amp;双与的效果是一样的，只不过sql语句一般写and</p>
+</li>
+<li><p>5.如果有范围可以用between and 来代替&gt;&#x3D; &lt;&#x3D; ，日期也能用于比较运算哦</p>
+</li>
+<li><p>6.如果查询多个确定的值，就可以in(),里面放上这些值即可（满足其中一个即可）</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示<img src="https://api2.mubu.com/v3/document_image/5b26cf73-26b4-4281-9b32-c5e402158baa-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>DQL-分组查询</p>
+<ul>
+<li><p>先进行聚合函数的讲解：分组查询操作一般会伴随着聚合统计进行</p>
+<ul>
+<li>比如说我们要根据员工的性别来进行分组，分别计算男性员工多少人，女性员工多少人，既要根据gender这个字段进行分组，还要进行分组之后的聚合统计操作，这里就会涉及到数据库中的聚合函数</li>
+</ul>
+</li>
+<li><p>聚合函数：</p>
+<ul>
+<li><p>介绍：将一列数据作为一个整体，进行纵向计算。</p>
+</li>
+<li><p>语法：select 聚合函数(字段列表) from 表名;</p>
+</li>
+<li><p>常见聚合函数：</p>
+<ul>
+<li><p>count：统计数量</p>
+</li>
+<li><p>max：最大值</p>
+</li>
+<li><p>min：最小值</p>
+</li>
+<li><p>avg：平均值</p>
+</li>
+<li><p>sum：求和</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/f042f426-df92-4061-bdfd-1c5ff504c317-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我的代码<img src="https://api2.mubu.com/v3/document_image/7471f562-7047-4d3f-86ea-aa8ad5ee76e7-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips</p>
+<ul>
+<li><p>1.聚合函数不对null值进行运算，所以要统计数据数，要count非空字段，比如说name，username都是非空字段</p>
+<ul>
+<li><p>count员工表是id数<img src="https://api2.mubu.com/v3/document_image/488d4f47-4e72-4713-854d-4da16d2ba43a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>count员工表job数（含一个job为null的员工）<img src="https://api2.mubu.com/v3/document_image/a87681d4-c683-47bf-8d12-1ee4e0857ccb-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>2.count()函数参数里可以放三个类型的东西：1.count(字段)2.count(常量)3.count(*)    &lt;–推荐</p>
+<ul>
+<li><p>1.常量可以是数字0，1，2，3…或者是字符串’A’，只要count一个不为null的常量都可以，因为null不参与聚合函数的运算<img src="https://api2.mubu.com/v3/document_image/ab6d1290-b707-49b8-a9a8-c66a75c7ac13-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.<em>是通配的意思，通过</em>就可以求这取张表的总数据量，项目开发时推荐使用count(*)，因为MySQL数据库底层专门对此做了优化处理</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/Cesteo.github.io/about" rel="external nofollow noreferrer">Cesteo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/05/mysql01/">https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/2023/12/05/mysql01/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/Cesteo.github.io/about" target="_blank">Cesteo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/Cesteo.github.io/tags/database/">
+                                    <span class="chip bg-color">database</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/Cesteo.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/Cesteo.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/Cesteo.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/Cesteo.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/Cesteo.github.io/2023/12/05/mysql02/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/Cesteo.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL02">
+                        
+                        <span class="card-title">MySQL02</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            database学习笔记2
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                    Computer Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Cesteo.github.io/tags/database/">
+                        <span class="chip bg-color">database</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Cesteo.github.io/2023/12/03/git-study/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/Cesteo.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="Git Study">
+                        
+                        <span class="card-title">Git Study</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            git的命令的学习与基本操作
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                    Computer Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Cesteo.github.io/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Cesteo&#39;s Blog<br />'
+            + '文章作者: 曹光友<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/Cesteo.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/Cesteo.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/Cesteo.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/Cesteo.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/Cesteo.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/Cesteo.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/Cesteo.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="/Cesteo.github.io/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/Cesteo.github.io/about" target="_blank">曹光友</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">24.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/starlike-daydream" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2455443454@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2577327404" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2577327404" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/Cesteo.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/Cesteo.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/Cesteo.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="/Cesteo.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/Cesteo.github.io/libs/aos/aos.js"></script>
+    <script src="/Cesteo.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/Cesteo.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/Cesteo.github.io/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/Cesteo.github.io/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/Cesteo.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/Cesteo.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/Cesteo.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
