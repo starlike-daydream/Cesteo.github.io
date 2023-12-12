@@ -395,7 +395,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-05
+                    2023-12-12
                 </div>
                 
 
@@ -429,18 +429,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><p>01.MySQL课程介绍</p>
-<ul>
-<li><p>上一章的案例是根据xml文件来存储数据的，但是开发中会采用专业的数据库来存储数据</p>
-<ul>
+                <h1 id="MySQL课程介绍"><a href="#MySQL课程介绍" class="headerlink" title="MySQL课程介绍"></a>MySQL课程介绍</h1><ul>
+<li>上一章的案例是根据xml文件来存储数据的，但是开发中会采用专业的数据库来存储数据<ul>
 <li><img src="https://api2.mubu.com/v3/document_image/1c2f34f4-def7-4475-ad87-d917ab11a244-8085313.jpg" alt="img"></li>
 </ul>
 </li>
-<li><p>什么是数据库？</p>
-<ul>
+</ul>
+<h2 id="1-什么是数据库？"><a href="#1-什么是数据库？" class="headerlink" title="1. 什么是数据库？"></a>1. 什么是数据库？</h2><ul>
 <li><p>数据库：DataBase（DB），是存储和管理数据的仓库。</p>
-</li>
+<ul>
 <li><p>例如CRM系统，想要修改数据，不需要动前端和服务端，只需要修改数据库中的数据即可（JavaEE–&gt;JavaEE入门到起飞）</p>
 <ul>
 <li><p>1.改之前+修改操作<img src="https://api2.mubu.com/v3/document_image/5359b65e-a7cc-418b-8358-7dfd681d84a1-8085313.jpg" alt="img"></p>
@@ -460,10 +457,10 @@
 </li>
 </ul>
 </li>
-<li><p>数据库产品（不用担心没学其他数据库，因为这些关系型数据都是通过SQL语句操作的）</p>
-<ul>
-<li><img src="https://api2.mubu.com/v3/document_image/6679b198-f924-4867-a4cb-3bb829114b64-8085313.jpg" alt="img"></li>
 </ul>
+<h2 id="数据库产品"><a href="#数据库产品" class="headerlink" title="数据库产品"></a>数据库产品</h2><p>（不用担心没学其他数据库，因为这些关系型数据都是通过SQL语句操作的）</p>
+<ul>
+<li><p><img src="https://api2.mubu.com/v3/document_image/6679b198-f924-4867-a4cb-3bb829114b64-8085313.jpg" alt="img"></p>
 </li>
 <li><p>MySQL数据库课程安排</p>
 <ul>
@@ -471,42 +468,22 @@
 </ul>
 </li>
 </ul>
+<h1 id="MySQL概述"><a href="#MySQL概述" class="headerlink" title="MySQL概述"></a>MySQL概述</h1><p>   安装、配置</p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><ul>
+<li><p>1.安装社区版<br>  - <img src="https://api2.mubu.com/v3/document_image/a3857cb5-895e-4b95-a2a1-e1c53aecf6ee-8085313.jpg" alt="img"></p>
 </li>
-<li><p>02.MySQL概述</p>
-<ul>
-<li><p>安装、配置</p>
-<ul>
-<li><p>1.下载</p>
-<ul>
-<li><p>1.安装社区版</p>
-<ul>
-<li><img src="https://api2.mubu.com/v3/document_image/a3857cb5-895e-4b95-a2a1-e1c53aecf6ee-8085313.jpg" alt="img"></li>
-</ul>
-</li>
-<li><p>2.访问官网，安装MySQL Community Server的Other Download的第一条（我下的是8.0.34），然后参照课程资料的MySQL安装文档</p>
-<ul>
-<li><img src="https://api2.mubu.com/v3/document_image/c7caa9d9-7baa-4211-ab1c-76db1e7b64b0-8085313.jpg" alt="img"></li>
-</ul>
+<li><p>2.访问官网，安装MySQL Community Server的Other Download的第一条（我下的是8.0.34），然后参照课程资料的MySQL安装文档<br>  - <img src="https://api2.mubu.com/v3/document_image/c7caa9d9-7baa-4211-ab1c-76db1e7b64b0-8085313.jpg" alt="img"></p>
 </li>
 </ul>
-</li>
-<li><p>2.解压：解压到没有中文和空格的目录</p>
-</li>
-<li><p>3.配置</p>
-<ul>
+<h2 id="2-解压：解压到没有中文和空格的目录"><a href="#2-解压：解压到没有中文和空格的目录" class="headerlink" title="2.解压：解压到没有中文和空格的目录"></a>2.解压：解压到没有中文和空格的目录</h2><h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h2><ul>
 <li><p>1.添加环境变量：</p>
-<ul>
+</li>
 <li><p>配置环境变量：在系统变量新建MYSQL_HOME，指定解压目录，再在PATH环境变量添加%MYSQL_HOME%\bin</p>
 </li>
 <li><p>验证配置成功：以管理员身份运行命令行，敲入mysql，回车，提示：Can’t connect to MySQL server on ‘<a target="_blank" rel="noopener" href="http://localhost:3306/">localhost:3306</a>‘的信息则说明配置成功</p>
 </li>
-</ul>
-</li>
-<li><p>2.初始化MySQL</p>
+<li><p>2.初始化MySQL<br>  - 在管理员命令行运行指令：mysqld –initialize-insecure，之后会在解压目录生成一个data文件夹用于存放mysql的数据</p>
 <ul>
-<li>在管理员命令行运行指令：mysqld –initialize-insecure，之后会在解压目录生成一个data文件夹用于存放mysql的数据</li>
-</ul>
-</li>
 <li><p>3.注册MySQL服务</p>
 <ul>
 <li><p>在管理员命令行运行指令：mysqld –install，回车（一定要用管理员身份）</p>
@@ -530,10 +507,10 @@
 </li>
 </ul>
 </li>
-<li><p>四、登录MySQL</p>
-<ul>
+</ul>
+<h2 id="四、登录MySQL"><a href="#四、登录MySQL" class="headerlink" title="四、登录MySQL"></a>四、登录MySQL</h2><ul>
 <li><p>黑框输入mysql -uroot -p1234（-u指定用户名username，-p指定密码password），出现下图且左下角为mysql&gt;，则登陆成功</p>
-</li>
+<ul>
 <li><p>登录成功的警告信息是告诉我们在命令行显示的输出密码不安全，别人一眼就能看到，这样别人就能登陆你的数据库操作数据了，很危险</p>
 </li>
 <li><p>2.在黑框输入exit退出mysql，输入mysql -uroot -p（不用写密码）<img src="https://api2.mubu.com/v3/document_image/1cf48c52-6c77-40fd-9784-bbe73bc7cf11-8085313.jpg" alt="img"></p>
@@ -542,12 +519,10 @@
 </li>
 </ul>
 </li>
-<li><p>五、卸载MySQL：自行参照文档</p>
-</li>
-<li><p>MySQL链接：语法:mysql -u用户名 -p密码 [-h数据库服务器IP地址 -P端口号]（后面两个参数不指定默认是本机IP127.0.0.1和mysql默认端口号3306）</p>
-<ul>
-<li><img src="https://api2.mubu.com/v3/document_image/0c8eb4ac-ede6-4668-a653-0ba0591d2b91-8085313.jpg" alt="img"></li>
 </ul>
+<h2 id="五、卸载MySQL：自行参照文档"><a href="#五、卸载MySQL：自行参照文档" class="headerlink" title="五、卸载MySQL：自行参照文档"></a>五、卸载MySQL：自行参照文档</h2><ul>
+<li>MySQL链接：语法:mysql -u用户名 -p密码 [-h数据库服务器IP地址 -P端口号]（后面两个参数不指定默认是本机IP127.0.0.1和mysql默认端口号3306）<ul>
+<li><p><img src="https://api2.mubu.com/v3/document_image/0c8eb4ac-ede6-4668-a653-0ba0591d2b91-8085313.jpg" alt="img"></p>
 </li>
 <li><p>其实以后进入公司，数据库安装在服务器中，而且放在很稳无湿无尘配备完善网络系统、电力系统的机房稳定运行的（以便多人共享访问），这时需要MySQL的客户端远程链接这台MySQL服务器，并且项目组的其他开发人员也在连接这台MySQL服务器<img src="https://api2.mubu.com/v3/document_image/bf3fdce4-3e99-408d-b8bb-95049a76d7b0-8085313.jpg" alt="img"></p>
 </li>
@@ -559,12 +534,10 @@
 </li>
 </ul>
 </li>
-<li><p>MySQL数据模型</p>
-<ul>
-<li><p>关系型数据库（RDBMS）：建立在关系模型基础上，由多张相互链接的二维表组成的数据库。</p>
-<ul>
-<li><img src="https://api2.mubu.com/v3/document_image/32b358ae-f1bb-4351-810c-2b34520a20f2-8085313.jpg" alt="img"></li>
 </ul>
+<h2 id="MySQL数据模型"><a href="#MySQL数据模型" class="headerlink" title="MySQL数据模型"></a>MySQL数据模型</h2><ul>
+<li>关系型数据库（RDBMS）：建立在关系模型基础上，由多张相互链接的二维表组成的数据库。<ul>
+<li><p><img src="https://api2.mubu.com/v3/document_image/32b358ae-f1bb-4351-810c-2b34520a20f2-8085313.jpg" alt="img"></p>
 </li>
 <li><p>特点1：使用表存储数据，格式统一，便于维护</p>
 </li>
@@ -582,10 +555,10 @@
 </li>
 </ul>
 </li>
-<li><p>SQL简介</p>
-<ul>
+</ul>
+<h2 id="SQL简介"><a href="#SQL简介" class="headerlink" title="SQL简介"></a>SQL简介</h2><ul>
 <li><p>SQL：一门操作关系数据库的编程语言，定义所有关系型数据库的统一标准。</p>
-</li>
+<ul>
 <li><p>通用语法：</p>
 <ul>
 <li><p>1.SQL语句可以单行或多行书写，以分号结尾。（show databases;）</p>
@@ -596,7 +569,7 @@
 </li>
 <li><p>4.注释：– 注释内容 (注意：有空格)或 # 注释内容（MySQL特有）(– show database;)</p>
 <ul>
-<li>2.多行注释：&#x2F;* 注释内容 <em>&#x2F;       (&#x2F;</em> show database; *&#x2F;)</li>
+<li>2.多行注释：&#x2F;<em>注释内容 <em>&#x2F;       (&#x2F;</em> show database;</em>&#x2F;)</li>
 </ul>
 </li>
 </ul>
@@ -626,13 +599,9 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>03.MySQL-DDL</p>
-<ul>
-<li><p>开发一个项目的流程：根据开发文档和项目原型设计</p>
-<ul>
+<h1 id="MySQL-DDL"><a href="#MySQL-DDL" class="headerlink" title="MySQL-DDL"></a>MySQL-DDL</h1><h2 id="1-开发一个项目的流程：根据开发文档和项目原型设计"><a href="#1-开发一个项目的流程：根据开发文档和项目原型设计" class="headerlink" title="1. 开发一个项目的流程：根据开发文档和项目原型设计"></a>1. 开发一个项目的流程：根据开发文档和项目原型设计</h2><ul>
 <li><p>1.数据库设计：分析各个模块涉及的表结构以及表结构之间的关系以及表结构的详细信息</p>
-</li>
+<ul>
 <li><p>2.编码设计一个个功能，并操作第一步设计的数据库表结构完成业务的增删改查</p>
 </li>
 <li><p>3.项目完成后：优化-数据库优化：索引的建立，SQL的优化，分库分表等操作</p>
@@ -650,53 +619,44 @@
 <li><img src="https://api2.mubu.com/v3/document_image/4e6159f0-433f-48df-9c87-9988ba03668a-8085313.jpg" alt="img"></li>
 </ul>
 </li>
-<li><p>查询：</p>
-<ul>
-<li><p>查询所有数据库：show databases;</p>
-<ul>
-<li>上面的第一个是刚刚创建的数据库，下面四个是系统数据库，不要去操作（需要分号结束！）<img src="https://api2.mubu.com/v3/document_image/94500f68-83de-4580-aea6-1ac8d607bcb0-8085313.jpg" alt="img"></li>
 </ul>
 </li>
-<li><p>查询当前数据库：select database();</p>
-<ul>
+</ul>
+<h2 id="2-查询"><a href="#2-查询" class="headerlink" title="2. 查询"></a>2. 查询</h2><ul>
+<li>查询所有数据库：show databases;<br>  - 上面的第一个是刚刚创建的数据库，下面四个是系统数据库，不要去操作（需要分号结束！）<img src="https://api2.mubu.com/v3/document_image/94500f68-83de-4580-aea6-1ac8d607bcb0-8085313.jpg" alt="img"><ul>
+<li>查询当前数据库：select database();<ul>
 <li>忘了当前在操作的数据库，就可以用这个<img src="https://api2.mubu.com/v3/document_image/ffe0d9a2-192f-47d2-b885-4502f8ea0228-8085313.jpg" alt="img"></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>使用：使用数据库：use 数据库名;</p>
-<ul>
+</ul>
+<h2 id="使用：使用数据库：use-数据库名"><a href="#使用：使用数据库：use-数据库名" class="headerlink" title="使用：使用数据库：use 数据库名"></a>使用：使用数据库：use 数据库名</h2><ul>
 <li>出现数据库切换，则代表使用成功<img src="https://api2.mubu.com/v3/document_image/4b6396c5-0ed9-4f7b-9429-8eeb0e213779-8085313.jpg" alt="img"></li>
 </ul>
-</li>
-<li><p>创建：创建数据库：create database [ if not exists ] 数据库名;</p>
-<ul>
+<h2 id="创建：创建数据库：create-database-if-not-exists-数据库名"><a href="#创建：创建数据库：create-database-if-not-exists-数据库名" class="headerlink" title="创建：创建数据库：create database [ if not exists ] 数据库名"></a>创建：创建数据库：create database [ if not exists ] 数据库名</h2><ul>
 <li><p>数据库是不能重名的，创建了同名数据库会报错<img src="https://api2.mubu.com/v3/document_image/640e6131-8d2b-49cc-bd08-a751ec87928a-8085313.jpg" alt="img"></p>
-</li>
+<ul>
 <li><p>加上可选项if not exists，如果数据库存在就不会执行任何操作，也不会报错，<img src="https://api2.mubu.com/v3/document_image/66c83940-a558-4b59-a3a8-b60f0fc80d26-8085313.jpg" alt="img"></p>
 </li>
 <li><p>如果数据库不存在就创建数据<img src="https://api2.mubu.com/v3/document_image/6d0594eb-74b8-404c-96dc-5429f9fc6276-8085313.jpg" alt="img"></p>
 </li>
 </ul>
 </li>
-<li><p>删除：删除数据库：drop database [ if exists ] 数据库名;</p>
-<ul>
+</ul>
+<h2 id="删除：删除数据库：drop-database-if-exists-数据库名"><a href="#删除：删除数据库：drop-database-if-exists-数据库名" class="headerlink" title="删除：删除数据库：drop database [ if exists ] 数据库名"></a>删除：删除数据库：drop database [ if exists ] 数据库名</h2><ul>
 <li><p>图示<img src="https://api2.mubu.com/v3/document_image/9f625955-32ac-4740-9573-03b78c411add-8085313.jpg" alt="img"></p>
 </li>
 <li><p>如果要删除的数据库不存在就会报错，加上可选项if exists就不会报错，也不执行任何操作<img src="https://api2.mubu.com/v3/document_image/19c744cd-f4ca-4a21-b122-860bbfad947c-8085313.jpg" alt="img"></p>
 </li>
 <li><p>如果要删除的数据库存在就删除它<img src="https://api2.mubu.com/v3/document_image/593d6e2b-548f-419b-a336-e12ba8435647-8085313.jpg" alt="img"></p>
 </li>
-</ul>
-</li>
 <li><p>注意事项：上述语法中的database，也可以替换成schema。如：create schema dab01;</p>
 </li>
 </ul>
-</li>
-<li><p>图形化工具</p>
-<ul>
+<h2 id="3-图形化工具"><a href="#3-图形化工具" class="headerlink" title="3. 图形化工具"></a>3. 图形化工具</h2><ul>
 <li><p>之前的命令行敲SQL语句，没有提示，错一个字符也不行，不会保存SQL语句历史记录，用户体验差<img src="https://api2.mubu.com/v3/document_image/322775d0-2150-4644-bca8-f50f17698c98-8085313.jpg" alt="img"></p>
-</li>
+<ul>
 <li><p>我们要使用的DataGrip已经在IDEA中集成了<img src="https://api2.mubu.com/v3/document_image/cdd9a2cd-1595-4d36-ad55-6c91b24a1c9a-8085313.jpg" alt="img"></p>
 </li>
 <li><p>IDEA右侧有一栏Database就是用来操作数据库的，点击左上角加号连接数据库，选择Data Source以选择操作的数据库-&gt;MySQL<img src="https://api2.mubu.com/v3/document_image/2821f756-604c-449e-9b4d-bd1f704d76c5-8085313.jpg" alt="img"></p>
@@ -723,12 +683,11 @@
 </li>
 </ul>
 </li>
-<li><p>表结构操作</p>
-<ul>
-<li><p>创建：create table 表名(字段1 字段类型  [ 约束 ] [ comment 字段1注释],….,字段n 字段类型  [ 约束 ] [ comment 字段n注释])[comment 表注释];（方括号是可选的，可以加，也可以不加）</p>
+</ul>
+<h2 id="表结构操作"><a href="#表结构操作" class="headerlink" title="表结构操作"></a>表结构操作</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>  create table 表名[字段1 字段类型  [ 约束 ] [ comment 字段1注释],….,字段n 字段类型  [ 约束 ] [ comment 字段n注释]](comment 表注释);（方括号是可选的，可以加，也可以不加）</p>
 <ul>
 <li><p>varchar(20)是mysql的字符串，括号里指定字符串最地盘存储为多少位，char(1)存储单个字符<img src="https://api2.mubu.com/v3/document_image/64cdc44a-1b7a-4ec0-9184-5c90030921ca-8085313.jpg" alt="img"></p>
-</li>
+<ul>
 <li><p>最后一个字段不能加逗号，会报错</p>
 </li>
 <li><p>选择的是数据库db01，表就会创建在db01数据库下<img src="https://api2.mubu.com/v3/document_image/db902bcd-51f0-4163-a554-e8c842b1f630-8085313.jpg" alt="img"></p>
@@ -737,10 +696,10 @@
 </li>
 </ul>
 </li>
-<li><p>约束</p>
-<ul>
+</ul>
+<h2 id="4-约束"><a href="#4-约束" class="headerlink" title="4. 约束"></a>4. 约束</h2><ul>
 <li><p>我们想要id为唯一标识，但是它默认是可以重复的，这时候就需要用到约束</p>
-</li>
+<ul>
 <li><p>概念：约束是作用在表中字段上的规则，用于限制存储在表中的数据。</p>
 </li>
 <li><p>目的：保证数据库中数据的正确性，有效性和完善性。</p>
@@ -776,26 +735,35 @@
 </li>
 </ul>
 </li>
-<li><p>数据类型</p>
-<ul>
+</ul>
+<h2 id="5-数据类型"><a href="#5-数据类型" class="headerlink" title="5. 数据类型"></a>5. 数据类型</h2><ul>
 <li><p>MySQL中的数据类型有很多，主要分为三类：数值类型，字符串类型，日期时间类型。</p>
+<ul>
+<li>数值类型:</li>
+</ul>
 </li>
-<li><p>数值类型:</p>
+</ul>
+<p>​</p>
 <ul>
 <li><p>age tinyint unsigned;（年龄没有负数，节省内存而选择一字节的tinyint）score double(4,1)（总共4位数字，一位小数位）</p>
-</li>
+<ul>
 <li><p>尽可能在业务运行的情况下选择占用磁盘小的数据类，只要能满足需求即可，这样就可以节省磁盘空间</p>
-</li>
+<ul>
 <li><p>用得较多的是tinyint，int，bigint，浮点数用的较多的是double，如果涉及到金额计算，不允许出现精度损失（像是Java的BigDecimal，对精度要求比较高），就用decimal</p>
+</li>
+<li><p>字符串类型：</p>
 </li>
 </ul>
 </li>
-<li><p>字符串类型：</p>
+</ul>
+</li>
+</ul>
+<p>​</p>
 <ul>
 <li><p>char(10)最多只能存10个字符，如果不是十个字符，也按照十个字符存储；</p>
 </li>
 <li><p>varchar(10)最多只能存10个字符，如果不是十个字符，按照实际长度（需要时间判断字符个数）（字符个数）存储；</p>
-</li>
+<ul>
 <li><p>blob存储二进制数据，比如说要存储视频，音频就可以用blob后缀的数据类型，但在真实的企业开发中，音视频不会直接存储在数据库中，而会存储在专业的文件服务器，所以比较少用</p>
 </li>
 <li><p>text存储文本字符串，比如说长篇小说，就可以使用带text后缀的类型</p>
@@ -805,12 +773,11 @@
 </ul>
 </li>
 <li><p>日期时间类型</p>
+</li>
+</ul>
+<p>​</p>
 <ul>
-<li>示例：birthday date（仅仅需要记录时间）,update_time（最后一次操作，需要记录详细时间）</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>示例：birthday date（仅仅需要记录时间）,update_time（最后一次操作，需要记录详细时间）<ul>
 <li><p>案例：根据页面原型&#x2F;需求创建表（设计合理的数据类型、长度、约束）</p>
 <ul>
 <li><p>需求：资料中的员工管理系统，右边还给出了详细的描述信息<img src="https://api2.mubu.com/v3/document_image/ce6dbd0c-2a7c-43d5-b87d-10e7d98876a8-8085313.jpg" alt="img"></p>
@@ -845,12 +812,16 @@
 <li><p>查询表结构：desc 表名;（图形化界面用的少了，在表的左侧）<img src="https://api2.mubu.com/v3/document_image/296750b6-40d1-4105-bdaf-048055d0f2e9-8085313.jpg" alt="img"></p>
 </li>
 <li><p>查询建表语句：show create table 表名;（双击展开）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​</p>
 <ul>
-<li>点击表右键选择edit source也能看到这张表的建表语句（我是右击选择Navigation，选择Go to DDL）</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>点击表右键选择edit source也能看到这张表的建表语句（我是右击选择Navigation，选择Go to DDL）</p>
+<ul>
 <li><p>修改（Modify table双击字段修改）</p>
 <ul>
 <li><p>添加字段：alter table 表名 add 字段名 类型(长度) [comment 注释] [约束];（加号）</p>
@@ -891,21 +862,17 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>04.MySQL-DML</p>
-<ul>
+<h1 id="MySQL-DML"><a href="#MySQL-DML" class="headerlink" title="MySQL-DML"></a>MySQL-DML</h1><ul>
 <li><p>第二个部分：根据页面原型以及需求进行相关功能开发进行数据库的操作</p>
 </li>
 <li><p>需求：（打开资料中的登录.html查看），当添加数据时，前端会提交一个表单，我们就需要把表单中多个数据添加到数据库</p>
 </li>
 <li><p>DML英文全称是Data manipulation Luaguage (数据操作语言)，用来对数据库中表的数据进行增、删、改操作。</p>
 </li>
-<li><p>INSERT（添加数据）</p>
-<ul>
-<li><p>1.指定字段添加数据：insert into 表名(字段名1,字段名2) values(值1,值2);</p>
-<ul>
-<li>在刚刚的员工管理表中，直接添加username，name，gender的字段会报错，是因为之前的create_time，update_time设置了非空，用MySQL的函数now()为他们赋值即可<img src="https://api2.mubu.com/v3/document_image/8210b628-a0de-4151-92c6-44baeacfe86a-8085313.jpg" alt="img"></li>
 </ul>
+<h2 id="1-INSERT（添加数据）"><a href="#1-INSERT（添加数据）" class="headerlink" title="1. INSERT（添加数据）"></a>1. INSERT（添加数据）</h2><ul>
+<li>1.指定字段添加数据：insert into 表名(字段名1,字段名2) values(值1,值2);<ul>
+<li><p>在刚刚的员工管理表中，直接添加username，name，gender的字段会报错，是因为之前的create_time，update_time设置了非空，用MySQL的函数now()为他们赋值即可<img src="https://api2.mubu.com/v3/document_image/8210b628-a0de-4151-92c6-44baeacfe86a-8085313.jpg" alt="img"></p>
 </li>
 <li><p>2.全部字段添加数据：insert into 表名 values(值1,值2,…);</p>
 <ul>
@@ -941,10 +908,10 @@
 </li>
 </ul>
 </li>
-<li><p>UPDATE（更新数据）</p>
-<ul>
+</ul>
+<h2 id="2-UPDATE（更新数据）"><a href="#2-UPDATE（更新数据）" class="headerlink" title="2. UPDATE（更新数据）"></a>2. UPDATE（更新数据）</h2><ul>
 <li><p>修改数据：update 表名 set 字段名1 &#x3D; 值1 , 字段名2 &#x3D; 值2 , …[ where 条件];</p>
-</li>
+<ul>
 <li><p>页面原型需求：修改数据时，先根据ID将数据查询出来，再在页面中展示出来，这个操作也叫数据回显，再选择数据进行修改<img src="https://api2.mubu.com/v3/document_image/b60c2981-b844-4ec5-a366-beb77cca4f3d-8085313.jpg" alt="img"></p>
 </li>
 <li><p>需求<img src="https://api2.mubu.com/v3/document_image/d80027a5-0635-42df-ac11-c3c80dba3018-8085313.jpg" alt="img"></p>
@@ -955,8 +922,7 @@
 </li>
 </ul>
 </li>
-<li><p>DELETE（删除数据）</p>
-<ul>
+<li><h2 id="DELETE（删除数据）"><a href="#DELETE（删除数据）" class="headerlink" title="DELETE（删除数据）"></a>DELETE（删除数据）</h2><ul>
 <li><p>业务场景：页面原型中表格的一项操作就是删除，当点击删除时，就会往服务端发送请求来指定删除哪一条数据，服务端接收到请求后就会操作数据库执行delete语句删除数据</p>
 </li>
 <li><p>delete语法（删除数据）：delete from 表名 [ where 条件 ];</p>
@@ -983,11 +949,9 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>05.MySQL-DQL</p>
-<ul>
+<h1 id="MySQL-DQL"><a href="#MySQL-DQL" class="headerlink" title="MySQL-DQL"></a>MySQL-DQL</h1><ul>
 <li><p>DQL英文全称是Data Query Language(数据查询)语言）,用来查询数据库表中的记录。</p>
-</li>
+<ul>
 <li><p>关键字：SELECT</p>
 </li>
 <li><p>重要性：查询这个操作是数据库中最常见、重要的操作，一个正常的业务系统中，查询基本可以占据90%以上</p>
@@ -998,8 +962,10 @@
 </li>
 </ul>
 </li>
-<li><p>语法：</p>
-<ul>
+</ul>
+</li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
 <li><p>select 字段列表 from 表名列表 where 条件列表 group by 分组字段列表 hanving 分组后条件列表 order by 排序字段列表 limit 分页参数</p>
 </li>
 <li><p>基本查询：select 字段列表 from 表名列表（字段列表代表我们要查询表中的哪些字段，字段之间用逗号分隔，from后面跟上表名列表，也就是说我们可以从多张表中进行查询）</p>
@@ -1015,12 +981,10 @@
 </li>
 <li><p>分页查询（limit）：在sql语句的后面加上一个关键字limit，limit之后跟上分页参数</p>
 </li>
-</ul>
-</li>
 <li><p>准备测试数据：数据库db03下操作，新建控制台mysql_02，资料DQL第一个sql脚本双击打开（其中是上节课的表，插上许多数据），cv到idea，全选执行在db02创建一张表，含29条数据</p>
 </li>
-<li><p>DQL-基本查询</p>
-<ul>
+</ul>
+<h2 id="1-DQL-基本查询"><a href="#1-DQL-基本查询" class="headerlink" title="1. DQL-基本查询"></a>1. DQL-基本查询</h2><ul>
 <li><p>语法</p>
 <ul>
 <li><p>查询多个字段：select 字段1,字段2,字段3 from 表名;</p>
@@ -1030,8 +994,6 @@
 <li><p>设置别名：select 字段 [ as  别名1 ], 字段2 [ as 别名2 ] from 表名;（不需要写方括号，只代表可选）</p>
 </li>
 <li><p>去除重复记录：select distinct 字段列表 from 表名;</p>
-</li>
-</ul>
 </li>
 <li><p>需求</p>
 <ul>
@@ -1049,7 +1011,7 @@
 </li>
 <li><p>2.要写多个或所有字段的话可以先打出selrct from 表名;然后再打字段列表，这样就会有字段和全部字段的提示。</p>
 </li>
-<li><p>3.以后写项目要查询所有字段推荐写select 字段1,字段2,….. from 表名（先打出后面的），而不推荐select * from 表名：1.不直观2.性能低（课上节省时间会使用*）</p>
+<li><p>3.以后写项目要查询所有字段推荐写select 字段1,字段2,….. from 表名（先打出后面的），而不推荐select <em>from 表名：1.不直观2.性能低（课上节省时间会使用</em>）</p>
 </li>
 <li><p>4.起别名的as可以省略，但是别名中如果有空格或者特殊符号需要给别名加上引号（单引号&#x2F;双引号）</p>
 </li>
@@ -1122,12 +1084,10 @@
 </li>
 </ul>
 </li>
-<li><p>DQL-分组查询</p>
-<ul>
-<li><p>先进行聚合函数的讲解：分组查询操作一般会伴随着聚合统计进行</p>
-<ul>
-<li>比如说我们要根据员工的性别来进行分组，分别计算男性员工多少人，女性员工多少人，既要根据gender这个字段进行分组，还要进行分组之后的聚合统计操作，这里就会涉及到数据库中的聚合函数</li>
 </ul>
+<h2 id="2-DQL-分组查询"><a href="#2-DQL-分组查询" class="headerlink" title="2. DQL-分组查询"></a>2. DQL-分组查询</h2><ul>
+<li>先进行聚合函数的讲解：分组查询操作一般会伴随着聚合统计进行<ul>
+<li><p>比如说我们要根据员工的性别来进行分组，分别计算男性员工多少人，女性员工多少人，既要根据gender这个字段进行分组，还要进行分组之后的聚合统计操作，这里就会涉及到数据库中的聚合函数</p>
 </li>
 <li><p>聚合函数：</p>
 <ul>
@@ -1172,8 +1132,6 @@
 <li><p>1.常量可以是数字0，1，2，3…或者是字符串’A’，只要count一个不为null的常量都可以，因为null不参与聚合函数的运算<img src="https://api2.mubu.com/v3/document_image/ab6d1290-b707-49b8-a9a8-c66a75c7ac13-8085313.jpg" alt="img"></p>
 </li>
 <li><p>2.<em>是通配的意思，通过</em>就可以求这取张表的总数据量，项目开发时推荐使用count(*)，因为MySQL数据库底层专门对此做了优化处理</p>
-</li>
-</ul>
 </li>
 </ul>
 </li>

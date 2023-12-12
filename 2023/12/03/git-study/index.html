@@ -395,7 +395,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-03
+                    2023-12-12
                 </div>
                 
 
@@ -429,16 +429,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><h1 id="git的初始化操作"><a href="#git的初始化操作" class="headerlink" title="git的初始化操作"></a>git的初始化操作</h1><ul>
+                <h1 id="git的初始化操作"><a href="#git的初始化操作" class="headerlink" title="git的初始化操作"></a>git的初始化操作</h1><ul>
 <li>安装好git后：git version查看git版本，检测是否安装成功</li>
 <li>一些dos命令：pwd–显示当前目录  ls–显示当前目录下的文件 cd ..–回退上一级目录 cd directory–切换目录  clear–清除历史记录</li>
 <li>git config –global <a target="_blank" rel="noopener" href="http://user.name/">user.name</a> [“ “]：查看[设置]用户名</li>
 <li>git config –global user.email [“ “]：查看[设置]用户邮箱</li>
 <li>git init：在当前目录初始化一个仓库</li>
 </ul>
-</li>
-<li><h1 id="git的提交操作"><a href="#git的提交操作" class="headerlink" title="git的提交操作"></a>git的提交操作</h1><ul>
+<h1 id="git的提交操作"><a href="#git的提交操作" class="headerlink" title="git的提交操作"></a>git的提交操作</h1><ul>
 <li><h6 id="git-add-文件名-：把文件上传到暂存区"><a href="#git-add-文件名-：把文件上传到暂存区" class="headerlink" title="git add 文件名 ：把文件上传到暂存区"></a>git add 文件名 ：把文件上传到暂存区</h6></li>
 <li><p>git add .：上传当前目录所有文件到暂存区</p>
 </li>
@@ -475,8 +473,7 @@
 <li><p>vscode自带git所有基本操作，高级操作需安装git history diff插件查看所有历史记录</p>
 </li>
 </ul>
-</li>
-<li><h1 id="git的版本控制操作"><a href="#git的版本控制操作" class="headerlink" title="git的版本控制操作"></a>git的版本控制操作</h1><ul>
+<h1 id="git的版本控制操作"><a href="#git的版本控制操作" class="headerlink" title="git的版本控制操作"></a>git的版本控制操作</h1><ul>
 <li>git reset –hard 提交id：回退到历史提交状态，会清空历史记录<ul>
 <li>reset是重置的意思</li>
 <li>–hard是重置模式：hard表示硬重置，即覆盖所有变更</li>
@@ -494,8 +491,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
+<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><ul>
 <li>团队协作肯定不能在同一台电脑上，最好在一个服务器上，这个服务器可以自己搭建，但是还是公用的省事：github&#x2F;gitee（简单来说就是可以git操作的网盘）</li>
 <li>github上new了一个repositoty,之后会有些教程，上传提交之后，<ul>
 <li>1.git branch -M main:创建主分支并把主分支切换为main</li>
@@ -512,8 +508,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><h1 id="参与开源项目"><a href="#参与开源项目" class="headerlink" title="参与开源项目"></a>参与开源项目</h1><ul>
+<h1 id="参与开源项目"><a href="#参与开源项目" class="headerlink" title="参与开源项目"></a>参与开源项目</h1><ul>
 <li>来到别人的项目,点击右上角的fork:把别人的代码库复制到我的账号了,类似branch,右上角点开自己的仓库就会发现已经复制下来了</li>
 <li>点击code,复制仓库的http链接</li>
 <li>在电脑上新建文件夹,打开终端,然后输入:git clone 你的仓库链接 .(把网盘上的仓库克隆到本地电脑)</li>
@@ -526,13 +521,9 @@
 <li>git fetch upstream:从上游更新最新代码</li>
 <li>然后执行:git merge upstream&#x2F;main,把远程的最新代码合并到自己的分支中,再git push就好了</li>
 </ul>
-</li>
-<li><p>问题记录</p>
-<ul>
+<h1 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h1><ul>
 <li>ssh连接除了好几次错误：先是22端口拒绝连接，然后我去搜，最后发现电脑只有ssh客户端，没有ssh服务器，然后下了似乎又说真实性，yes&#x2F;no什么的，这里又搜了一下，是要输yes，我的443端口没问题，不是防火墙的原因，好像少了一个kown_hosts文件</li>
 <li>类似下图的错误，反正yes着yes着的、差不多就好了</li>
-</ul>
-</li>
 </ul>
 
                 
