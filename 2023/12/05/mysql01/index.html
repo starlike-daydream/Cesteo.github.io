@@ -395,7 +395,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-12
+                    2023-12-18
                 </div>
                 
 
@@ -742,9 +742,6 @@
 <li>数值类型:</li>
 </ul>
 </li>
-</ul>
-<p>​</p>
-<ul>
 <li><p>age tinyint unsigned;（年龄没有负数，节省内存而选择一字节的tinyint）score double(4,1)（总共4位数字，一位小数位）</p>
 <ul>
 <li><p>尽可能在业务运行的情况下选择占用磁盘小的数据类，只要能满足需求即可，这样就可以节省磁盘空间</p>
@@ -757,9 +754,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<p>​</p>
-<ul>
 <li><p>char(10)最多只能存10个字符，如果不是十个字符，也按照十个字符存储；</p>
 </li>
 <li><p>varchar(10)最多只能存10个字符，如果不是十个字符，按照实际长度（需要时间判断字符个数）（字符个数）存储；</p>
@@ -774,10 +768,8 @@
 </li>
 <li><p>日期时间类型</p>
 </li>
-</ul>
-<p>​</p>
+<li><p>示例：birthday date（仅仅需要记录时间）,update_time（最后一次操作，需要记录详细时间）</p>
 <ul>
-<li>示例：birthday date（仅仅需要记录时间）,update_time（最后一次操作，需要记录详细时间）<ul>
 <li><p>案例：根据页面原型&#x2F;需求创建表（设计合理的数据类型、长度、约束）</p>
 <ul>
 <li><p>需求：资料中的员工管理系统，右边还给出了详细的描述信息<img src="https://api2.mubu.com/v3/document_image/ce6dbd0c-2a7c-43d5-b87d-10e7d98876a8-8085313.jpg" alt="img"></p>
@@ -817,9 +809,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<p>​</p>
-<ul>
 <li><p>点击表右键选择edit source也能看到这张表的建表语句（我是右击选择Navigation，选择Go to DDL）</p>
 <ul>
 <li><p>修改（Modify table双击字段修改）</p>
