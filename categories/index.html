@@ -20,6 +20,15 @@
     <title>分类 | Cesteo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/Cesteo.github.io/favicon.png">
     
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
 
 
     <!-- bg-cover style     -->
@@ -515,11 +524,20 @@
                 </a>
                 
                 
-                <a href="/Cesteo.github.io/categories/other/" title="other: 1">
+                <a href="/Cesteo.github.io/categories/other/" title="other: 0">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F5EEF8;">other
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">0</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/Cesteo.github.io/categories/week-report/" title="week report: 0">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">week report
+                        <span class="tag-length">0</span>
                     </span>
                 </a>
                 
@@ -566,7 +584,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"Computer Learning","max":6},{"name":"other","max":6}],
+            indicator: [{"name":"Computer Learning","max":5},{"name":"other","max":5},{"name":"week report","max":5}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -577,7 +595,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [5,1],
+                    value : [5,0,0],
                     name : '文章分类数量'
                 }
             ]
@@ -976,10 +994,25 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
+        <div style="position:fixed;bottom:125px;right:16px;cursor: pointer;">
+            <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/622648"><i class="fa fa-comments fa-3x"  aria-hidden="true"></i></a>
+        </div>
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/Cesteo.github.io/libs/background/canvas-nest.js"></script>
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/Cesteo.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
 
+    
+    <script type="text/javascript" src="/Cesteo.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

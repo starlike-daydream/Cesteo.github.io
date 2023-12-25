@@ -20,6 +20,15 @@
     <title>关于 | Cesteo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/Cesteo.github.io/favicon.png">
     
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
 
 
     <!-- bg-cover style     -->
@@ -515,14 +524,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/Cesteo.github.io/categories">2</a></span>
+    <span class="count"><a href="/Cesteo.github.io/categories">3</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/Cesteo.github.io/tags">4</a></span>
+    <span class="count"><a href="/Cesteo.github.io/tags">6</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -545,14 +554,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/Cesteo.github.io/categories">2</a></span>
+    <span class="count"><a href="/Cesteo.github.io/categories">3</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/Cesteo.github.io/tags">4</a></span>
+    <span class="count"><a href="/Cesteo.github.io/tags">6</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -738,7 +747,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Computer Learning","value":5},{"name":"other","value":1}],
+                data: [{"name":"Computer Learning","value":5},{"name":"other","value":0},{"name":"week report","value":0}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -762,7 +771,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["database","git","Blog Building","Week Report"]
+                data: ["database","git","Blog Building","周报","小组周报","Week Report"]
             }
         ],
         yAxis: [
@@ -775,7 +784,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [3,1,1,1],
+                data: [3,1,1,1,1,0],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -950,6 +959,18 @@
             
             <a href="/Cesteo.github.io/tags/Week-Report/">
                 <span class="chip center-align waves-effect waves-light chip-default">Week Report</span>
+            </a>
+            
+            
+            
+            <a href="/Cesteo.github.io/tags/%E5%91%A8%E6%8A%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">周报</span>
+            </a>
+            
+            
+            
+            <a href="/Cesteo.github.io/tags/%E5%B0%8F%E7%BB%84%E5%91%A8%E6%8A%A5/">
+                <span class="chip center-align waves-effect waves-light chip-default">小组周报</span>
             </a>
             
             
@@ -1397,10 +1418,25 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
+        <div style="position:fixed;bottom:125px;right:16px;cursor: pointer;">
+            <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/622648"><i class="fa fa-comments fa-3x"  aria-hidden="true"></i></a>
+        </div>
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/Cesteo.github.io/libs/background/canvas-nest.js"></script>
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/Cesteo.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
 
+    
+    <script type="text/javascript" src="/Cesteo.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
