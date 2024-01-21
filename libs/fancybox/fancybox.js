@@ -38,7 +38,7 @@
             image: {preload: !1},
             ajax: {settings: {data: {fancybox: !0}}},
             iframe: {
-                tpl: '<iframe sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',
+                tpl: '<iframe  sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',
                 preload: !0,
                 css: {},
                 attr: {scrolling: "auto"}
