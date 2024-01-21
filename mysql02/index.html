@@ -1,0 +1,2242 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL02, Study Computer Coder">
+    <meta name="description" content="database学习笔记2">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL02 | Ceasteo&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/aos/aos.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/css/matery.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/css/my.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/css/dark.min.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/tocbot/tocbot.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/css/post.min.css">
+
+
+
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/Cesteo.github.io/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ceasteo&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Cesteo.github.io/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/Cesteo.github.io/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/Cesteo.github.io/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/Cesteo.github.io/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/Cesteo.github.io/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ceasteo&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            A website with articles for saving what and how I study,welcome!
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Cesteo.github.io/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/Cesteo.github.io/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/Cesteo.github.io/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/Cesteo.github.io/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/Cesteo.github.io/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/starlike-daydream" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/starlike-daydream" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL02</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/Cesteo.github.io/tags/database/">
+                                <span class="chip bg-color">database</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                Computer Learning
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li><p>01.MySQL-DQL</p>
+<ul>
+<li><p>DQL英文全称是Data Query Language(数据查询)语言），用来查询数据库表中的记录。</p>
+</li>
+<li><p>关键字：SELECT</p>
+</li>
+<li><p>重要性：查询这个操作是数据库中最常见、重要的操作，一个正常的业务系统中，查询基本可以占据90%以上</p>
+<ul>
+<li><p>1.比如说CRM系统，每次点击左边的菜单栏都会发起一次或多次查询操作，点击课程管理菜单后会显示课程相关数据信息，前端只负责将数据以好看的样式展示出来，最终的数据都是在数据库中存储和管理的(比如课程中的一条数据对应着数据库表结构当中的一条记录，当我们点击课程管理菜单后，就可以将数据库表结构中的数据查询出来)<img src="https://api2.mubu.com/v3/document_image/063038da-0204-4253-a98c-7a202635343a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.页面也允许用户在上面根据条件查询（比如在课程名称中输入Java，就可以查询出课程名称中含有Java关键字的课程，添加条件适用人群为小白学员，就可查询到对应数据,也可查询时间范围，对数据排序，分页展示数据加快页面加载速度，同时提高了用户使用体验）<img src="https://api2.mubu.com/v3/document_image/4ac0f5e2-a604-41e0-9aa4-086af80d3197-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<ul>
+<li><p>select 字段列表 from 表名列表 where 条件列表 group by 分组字段列表 hanving 分组后条件列表 order by 排序字段列表 limit 分页参数</p>
+</li>
+<li><p>基本查询：select 字段列表 from 表名列表（字段列表代表我们要查询表中的哪些字段，字段之间用逗号分隔，from后面跟上表名列表，也就是说我们可以从多张表中进行查询）</p>
+</li>
+<li><p>条件查询（where）：在基本查询后面可以加上where，where后面跟上条件列表（可以有多个条件）</p>
+</li>
+<li><p>分组查询（group by）：group by跟上要分组的字段，如果分组之后还要进行条件的筛选，还需要加上关键字having，having之后加的是分组的条件</p>
+<ul>
+<li>比如有一张员工表，里面有一个字段是gender性别，要想知道男性员工和女性员工各有多少人，就可以用性别字段进行分组，分完组之后再统计男性女性个多少人</li>
+</ul>
+</li>
+<li><p>排序查询（order by）：order by后跟上排序的字段（支持对多个字段进行排序）</p>
+</li>
+<li><p>分页查询（limit）：在sql语句的后面加上一个关键字limit，limit之后跟上分页参数</p>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/07894e28-75c1-4142-adf8-1d47ddabab19-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>准备测试数据：数据库db03下操作，新建控制台mysql_02，资料DQL第一个sql脚本双击打开（其中是上节课的表，插上许多数据），cv到idea，全选执行在db02创建一张表，含29条数据</p>
+</li>
+<li><p>01.DQL-基本查询</p>
+<ul>
+<li><p>语法</p>
+<ul>
+<li><p>查询多个字段：select 字段1,字段2,字段3 from 表名;</p>
+</li>
+<li><p>查询所有字段（通配符）：select * from 表名;（不推荐：1.不直观，2.性能低）</p>
+</li>
+<li><p>设置别名：select 字段 [ as  别名1 ], 字段2 [ as 别名2 ] from 表名;（不需要写方括号，只代表可选）</p>
+</li>
+<li><p>去除重复记录：select distinct 字段列表 from 表名;</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/fe110f67-cd9c-4d53-9228-630d5101e794-8085313.jpg" alt="img"></p>
+</li>
+<li><p>自己写的<img src="https://api2.mubu.com/v3/document_image/43f12c26-62b7-48b3-8685-46598d6a6f31-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的（工作几种？最后的null代表还没有分配职位，职位一共有四种）<img src="https://api2.mubu.com/v3/document_image/76bfaec1-9b07-424e-99fc-f4314d1249c3-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips：</p>
+<ul>
+<li><p>1.写好select 查询的字段之后会报错，不用管，因为没有表名，他不知道指定的字段存不存在，写好from加表名就不会报错了，这些字段已经被识别出来了</p>
+</li>
+<li><p>2.要写多个或所有字段的话可以先打出selrct from 表名;然后再打字段列表，这样就会有字段和全部字段的提示。</p>
+</li>
+<li><p>3.以后写项目要查询所有字段推荐写select 字段1,字段2,….. from 表名（先打出后面的），而不推荐select * from 表名：1.不直观2.性能低（课上节省时间会使用*）</p>
+</li>
+<li><p>4.起别名的as可以省略，但是别名中如果有空格或者特殊符号需要给别名加上引号（单引号&#x2F;双引号）</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/cd736532-283d-476c-8e1f-f9c44e004a1e-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>02.DQL-条件查询</p>
+<ul>
+<li><p>语法—条件查询：select 字段列表 from 表名 where 条件列表;</p>
+</li>
+<li><p>条件列表的条件可以有多个，学习条件查询主要就是学会条件的构建方式，并且SQL语句中构建条件的运算符有很多，主要分为比较运算符和逻辑运算符</p>
+</li>
+<li><p>比较运算符</p>
+<ul>
+<li><p>&gt;：大于，&gt;&#x3D;：大于等于，&lt;：小于，&lt;&#x3D;：小于等于</p>
+</li>
+<li><p>&lt;&gt; 或  !&#x3D; ：不等于，&#x3D;：等于</p>
+</li>
+<li><p>between … and … ：在某个范围之内（含最小、最大值）（between后跟上最小值，and后跟上最大值）</p>
+</li>
+<li><p>in(…)：在in之后的列表中的值，多选一</p>
+</li>
+<li><p>like 占位符：模糊匹配（_匹配单个字符，%匹配任意个字符）</p>
+</li>
+<li><p>is null：是null</p>
+</li>
+</ul>
+</li>
+<li><p>逻辑运算符：</p>
+<ul>
+<li><p>and 或 &amp;&amp;：并且（多个条件同时成立）</p>
+</li>
+<li><p>or 或 || ：或者（多个条件任意一个成立）</p>
+</li>
+<li><p>not 或 ! ：非，不是</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/de2cec54-d1ab-4559-bc32-5222bb14f8b4-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/6ad36574-8b67-4437-8ad5-b60daebf45ac-8085313.jpg" alt="img"></p>
+</li>
+<li><p>代码（我的和老师的大差不差）<img src="https://api2.mubu.com/v3/document_image/980026a9-7163-4d4c-853c-d709e9e8b3ef-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips</p>
+<ul>
+<li><p>1.select * from tb_emp where name &#x3D; ‘杨逍’;因为name是字符串，所以杨逍也要用引号引起来</p>
+</li>
+<li><p>2.null只能用is判断，而不像其他数据类型用&#x3D;判断</p>
+</li>
+<li><p>3.查询结果显示台可以看到查询到数据的条数<img src="https://api2.mubu.com/v3/document_image/fdcdefb4-e3d0-4cb3-ab18-fbfefcc3e629-8085313.jpg" alt="img"></p>
+</li>
+<li><p>4.并列条件and和&amp;&amp;双与的效果是一样的，只不过sql语句一般写and</p>
+</li>
+<li><p>5.如果有范围可以用between and 来代替&gt;&#x3D; &lt;&#x3D; ，日期也能用于比较运算哦</p>
+</li>
+<li><p>6.如果查询多个确定的值，就可以in(),里面放上这些值即可（满足其中一个即可）</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/5b26cf73-26b4-4281-9b32-c5e402158baa-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>03.DQL-分组查询</p>
+<ul>
+<li><p>先进行聚合函数的讲解：分组查询操作一般会伴随着聚合统计进行</p>
+<ul>
+<li>比如说我们要根据员工的性别来进行分组，分别计算男性员工多少人，女性员工多少人，既要根据gender这个字段进行分组，还要进行分组之后的聚合统计操作，这里就会涉及到数据库中的聚合函数</li>
+</ul>
+</li>
+<li><p>聚合函数：</p>
+<ul>
+<li><p>介绍：将一列数据作为一个整体，进行纵向计算。</p>
+</li>
+<li><p>语法：select 聚合函数(字段列表) from 表名;</p>
+</li>
+<li><p>常见聚合函数：</p>
+<ul>
+<li><p>count：统计数量</p>
+</li>
+<li><p>max：最大值</p>
+</li>
+<li><p>min：最小值</p>
+</li>
+<li><p>avg：平均值</p>
+</li>
+<li><p>sum：求和</p>
+</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/f042f426-df92-4061-bdfd-1c5ff504c317-8085313.jpg" alt="img"></p>
+</li>
+<li><p>代码<img src="https://api2.mubu.com/v3/document_image/d6975e77-2b0d-4ee7-93d6-5c8568f10c43-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips</p>
+<ul>
+<li><p>1.聚合函数不对null值进行运算，所以要统计数据数，要count非空字段，比如说name，username都是非空字段</p>
+<ul>
+<li><p>count员工表是id数<img src="https://api2.mubu.com/v3/document_image/488d4f47-4e72-4713-854d-4da16d2ba43a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>count员工表job数（含一个job为null的员工）<img src="https://api2.mubu.com/v3/document_image/a87681d4-c683-47bf-8d12-1ee4e0857ccb-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>2.count()函数参数里可以放三个类型的东西：1.count(字段)2.count(常量)3.count(*)    &lt;–推荐</p>
+<ul>
+<li><p>1.常量可以是数字0，1，2，3…或者是字符串’A’，只要count一个不为null的常量都可以，因为null不参与聚合函数的运算<img src="https://api2.mubu.com/v3/document_image/ab6d1290-b707-49b8-a9a8-c66a75c7ac13-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.<em>是通配的意思，通过</em>就可以求这取张表的总数据量，项目开发时推荐使用count(*)，因为MySQL数据库底层专门对此做了优化处理</p>
+</li>
+</ul>
+</li>
+<li><p>3.avg()求平均值的返回值是有小数的</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示<img src="https://api2.mubu.com/v3/document_image/e909ca2d-3dd5-489f-a7e1-3cf774d7f0f9-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>分组查询–语法：select 字段列表 from 表名 [ where 条件 ] group by 分组字段名 [ having 分组后过滤条件 ];</p>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/7d881b18-abf8-4e35-9d8c-85573c408973-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我的代码<img src="https://api2.mubu.com/v3/document_image/33797200-40db-429f-a12c-2ae16fbb264c-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的代码<img src="https://api2.mubu.com/v3/document_image/81518e3f-c3cf-4279-b66a-42cfe67bdc9f-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>tips</p>
+<ul>
+<li><p>1.在分组查询的字段列表写<em>会报错，因为分组了，再写</em>就没意义了，所以这里可以写的是分组字段和聚合函数 （分组字段后返回的数据是这两类）</p>
+</li>
+<li><p>2.想要写分组的过滤条件，不能写在where后面，因为在where之后不能写count聚合函数，只能写在关键字having之后加上聚合函数构建的条件</p>
+</li>
+</ul>
+</li>
+<li><p>面试题：where与having的区别</p>
+<ul>
+<li><p>1.执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；而having是分组之后对结果进行过滤。</p>
+</li>
+<li><p>2.判断条件不同：where不能√聚合函数进行判断，而having可以。</p>
+</li>
+</ul>
+</li>
+<li><p>注意事项：</p>
+<ul>
+<li><p>分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义。</p>
+</li>
+<li><p>执行顺序：where  &gt; 聚合函数 &gt; having。</p>
+</li>
+</ul>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/0c817688-62f3-4113-a3e5-356bc130f460-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>04.DQL-排序查询</p>
+<ul>
+<li><p>语法–排序查询：select 字段列表 from 表名 [ where 条件列表 ] [ group by 分组字段 ] order by 字段1 排序方式1,字段2 排序方式2… ；</p>
+</li>
+<li><p>排序方式：1.ASC：升序（默认值）2.DESC：降序</p>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/53ad6b0d-4674-41f5-a555-cf3470ff5dc2-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我的代码<img src="https://api2.mubu.com/v3/document_image/0f8f8ffb-d25c-4d72-9c27-ce47fb98e463-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的代码（ASC报黄是因为多余了）<img src="https://api2.mubu.com/v3/document_image/bbad5e43-a613-4be0-938d-bed0f2c83010-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>sql语句中只有第一个排序字段相同时，才会根据第二个排序字段进行排序</p>
+</li>
+<li><p>ppt图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/cf18e020-9277-4363-93ac-94dcd66058d6-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>05.DQL-分页查询</p>
+<ul>
+<li><p>场景：分页查询非常常见，如果说我们一次性查询出来的数据比较多，就会进行分页展示，以提高用户的使用体验</p>
+<ul>
+<li><p>比如说京东的搜索页面，它的最下方就有一个这样的分页条，数据分页之后，用户点击对应的页码，就可以加载出这一页的最新数据<img src="https://api2.mubu.com/v3/document_image/dcafa3c5-b6c7-4fec-b6a8-fd526a34dacd-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.再比如说CRM的课程管理菜单，用户在查看数据的时候，只需要点击对应的页码，就可以加载出这一页的数据<img src="https://api2.mubu.com/v3/document_image/a5103272-5545-46a5-871a-1adfa063bc3a-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>语法-分页查询：select 字段列表 from 表名 limit 起始索引,查询记录数;</p>
+<ul>
+<li>查询语句后面加上关键字limit，limit之后指定两个分页参数，用逗号分隔（起始索引：指的是我们要从哪一条数据往后进行查询，起始索引是从零开始的。查询记录数：指的是这一页需要展示多少条数据）</li>
+</ul>
+</li>
+<li><p>需求</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/a1e49108-33ac-4843-b821-9ad27fcba12d-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我的代码（×：起始页码是1，所以第一条和第二条一样，下面也是，多了，需求2，3，4起始索引应该是0，5，10）<img src="https://api2.mubu.com/v3/document_image/20522816-e319-41a3-a447-e2103d7a4235-8085313.jpg" alt="img"></p>
+</li>
+<li><p>修改后+查询结果展示<img src="https://api2.mubu.com/v3/document_image/9facc39c-504c-4e74-903d-afabe5f9ff82-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>起始索引 &#x3D; （页码 - 1） * 每页展示记录数</p>
+</li>
+<li><p>tip：查询记录数就是查询结果会展示的记录数，从起始索引开始展示，表中的每条数据的索引就是正常的序号-1</p>
+</li>
+<li><p>注意事项：</p>
+<ul>
+<li><p>1.起始索引从0开始，起始索引 &#x3D; （查询页码 - 1） * 每页显示记录数。</p>
+<ul>
+<li>将来前端并不会把起始索引传过来，它传递的都是页码，比如说查询第1，2，3…页，传递过来后，我们需要在执行SQL语句时，把页码换算成对应的起始索引</li>
+</ul>
+</li>
+<li><p>2.分页查询是数据库的方言，不同的数据库有着不同的实现，MySQL中是LIMIT。</p>
+<ul>
+<li>Oracle数据库是通过row number伪列配合子查询实现的</li>
+</ul>
+</li>
+<li><p>3.如果查询的是第一页数据，起始索引可以省略，直接简写为limit 10。（起始索引默认为0）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>06.DQL-案例</p>
+<ul>
+<li><p>案例一</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/bbfd2d7e-deb7-4a8e-aab8-de99386da44b-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我的代码<img src="https://api2.mubu.com/v3/document_image/3229fb3d-c7d6-45cb-a007-694f66c6809f-8085313.jpg" alt="img"></p>
+</li>
+<li><p>写代码要看啊页面原型的需求<img src="https://api2.mubu.com/v3/document_image/31ba8776-d7d3-4f99-81f2-b344d48827fb-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的代码<img src="https://api2.mubu.com/v3/document_image/675e539a-cc46-40f5-8ac1-2c6789b0f883-8085313.jpg" alt="img"></p>
+</li>
+<li><p>tip：1.模糊匹配可以在要模糊查询的字前后都加上%2.选中SQL语句，ctrl+Alt+L对选中SQL语句格式化3.完成案例时，一定要按照页面原型和需求文档来编写对应的SQL</p>
+</li>
+</ul>
+</li>
+<li><p>案例二</p>
+<ul>
+<li><p>题目： 这类的需求也叫弧形报表，就是做数据统计，然后再将统计好的数据以可视化的形式展示出来<img src="https://api2.mubu.com/v3/document_image/b85c60a2-3162-4d21-be52-ffefe7d3e348-8085313.jpg" alt="img"></p>
+</li>
+<li><p>分析：我们只需要统计男性员工和女性员工多少人就可以了，我们把数据统计出来后返回给前端数据，前端数据再借助一些现成的报表组件库就可以完成报表的渲染展示了</p>
+</li>
+<li><p>这里以ECharts为例，Echarts是百度开源的一个组件库，现在已经是Apache的孵化项目，所以域名是<a target="_blank" rel="noopener" href="http://apache.org/">apache.org</a>，官网是<a target="_blank" rel="noopener" href="http://echarts.apache.org/">echarts.apache.org</a>，点击所有事例就能看到Echarts给我们提供的所有报表组件（折线图&#x2F;柱状图&#x2F;饼状图），点开后就可以看到左侧的JS源码和右侧的效果预览图</p>
+</li>
+<li><p>去除底部的data的三栏数据，修改剩下两栏的name属性值，修改series的name属性值，完成了一个简单的报表<img src="https://api2.mubu.com/v3/document_image/d72ce18a-8eca-47b5-a48f-e61e8b3f6e77-8085313.jpg" alt="img"></p>
+</li>
+<li><p>而这部分最核心的就是数据，需要从数据库中查询出来</p>
+</li>
+<li><p>我的代码<img src="https://api2.mubu.com/v3/document_image/f8b8bdab-a4c5-4f32-9913-3f6d326e3554-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/a53cbc12-6046-4d8d-9aec-88fa14f1be8e-8085313.jpg" alt="img"></p>
+</li>
+<li><p>但是需要的是男和女字样，所以还要改成男性员工，女性员工，需要用if函数：if(条件表达式,true取值,false取值)，但是这样写表头比较长，可以跟上性别作为别名<img src="https://api2.mubu.com/v3/document_image/cebd9964-b0bc-4f56-bc6c-c857fd67774e-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/aef3d5f6-0789-49e3-90d5-c77b115fc7f9-8085313.jpg" alt="img"></p>
+</li>
+<li><p>第二个案例需要转化四个字样，就可以用另外一个流程控制函数case()：case 表达式 when 值1 then 结果1 when 值2 then 结果2 … else … end（类似Java的switch函数），写完打上括号起别名即可<img src="https://api2.mubu.com/v3/document_image/f37a24be-8023-4963-b5d5-eeaf55d3ee6f-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/ec16e598-d6c0-48b6-b09d-657783cc5e91-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>案例小结图示</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/4b62c96e-1956-472b-b7bc-fd2577d5a685-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>DQL小结</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/81f82f5b-2cb8-47b8-bac9-8300c46111aa-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>02.多表设计</p>
+<ul>
+<li><p>概述：项目开发中，在进行数据库表结构设计时，会根据业务需求以及业务模块之间的关系，分析并设计表结构，由于业务之间相互关联，所以各个表结构之间也存在着各种联系，基本分为三种：</p>
+<ul>
+<li>电商网站中，有很多的商品数据，每个商品都有一个品牌，比如说华为或者联想，然而某一个商品也要归属于商品分类中的一类，而且一个商品有很多规格，而一种规格可能很多商品都有，业务关系错综复杂<img src="https://api2.mubu.com/v3/document_image/89d6c6f7-dfc8-483c-93cc-39925e66f840-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/bd8a8126-fe19-4815-a788-9b9056de814b-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>一对多（多对一）</p>
+<ul>
+<li><p>需求：</p>
+<ul>
+<li><p>根据页面原型及需求文档，完成部门及员工模块的表结构设计（一个部门有多个员工，但一个部门只能属于一个员工）<img src="https://api2.mubu.com/v3/document_image/9eec015c-554a-48f7-bc62-6b57c0ca4ef0-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我写的<img src="https://api2.mubu.com/v3/document_image/eb77c2b3-9788-42a3-9f0f-7dac552fb46f-8085313.jpg" alt="img"></p>
+</li>
+<li><p>老师的<img src="https://api2.mubu.com/v3/document_image/46675728-47ae-4f4a-88ca-979e8675afd1-8085313.jpg" alt="img"></p>
+</li>
+<li><p>完善先前员工表的归属部门，类型与部门表的id一样<img src="https://api2.mubu.com/v3/document_image/3e27bcad-5a57-4b4b-91da-19d71dbaf5c3-8085313.jpg" alt="img"></p>
+</li>
+<li><p>这样一来，员工表的dept_id关联的就是部门表的主键，比如说2号部门是教研部<img src="https://api2.mubu.com/v3/document_image/c1a68ae4-9bbd-4625-b49a-d467b32ec8b5-8085313.jpg" alt="img"></p>
+</li>
+<li><p>这层关系中：部门表示一的一方，员工表示多的一方，一个部门会对应多个员工，但一个员工只能归属多个部门，所以在一对多的关系中，我们也把一的一方叫做父表，多的一方叫做子表，因为一个父亲可以有多个儿子，但一个儿子只能有有一个父亲</p>
+</li>
+<li><p>总结：只需要在数据库表结构中多的一方来增加一个字段关联一的一方的主键就可以了</p>
+</li>
+</ul>
+</li>
+<li><p>外键</p>
+<ul>
+<li><p>多表问题分析</p>
+<ul>
+<li><p>插入测试数据（资料第一个文件，cvINSERT语句，选中执行）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/ac0f0ef2-c1be-460d-9958-ec1a65d4c56f-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>删除id为一的部门学工部，但是员工表中id为一的员工依然存在</p>
+<ul>
+<li>图示<img src="https://api2.mubu.com/v3/document_image/9fd0e362-306f-41ce-b7ab-649b80af2114-8085313.jpg" alt="img"><img src="https://api2.mubu.com/v3/document_image/89ffca44-7c3a-4504-923f-221122343e9d-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>现象：部门数据可以直接删除，然而还有部分员工归属于该部门下，此时就出现了数据的不完整】不一致问题</p>
+</li>
+<li><p>问题原因分析：目前上述的两张表，在数据库层面，并未建立关联，所以是无法保证数据的一致性和完整性的。（刚刚只在逻辑上完成了dept_id和dept的统一，但是数据库层面并未建立任何联系）</p>
+</li>
+<li><p>解决办法：外键约束（我们所学的第五种约束）</p>
+</li>
+</ul>
+</li>
+<li><p>外键语法</p>
+<ul>
+<li><p>创建表时指定：create table 表名(    字段名     数据类型,…[constraint] [外键约束] foreign key(外键字段名) references 主表(字段名)            );</p>
+</li>
+<li><p>建完表后，添加外键：alter table 表名 add constraint 外键名称 foreign key(外键字段名) references 主表(字段名);</p>
+</li>
+</ul>
+</li>
+<li><p>图形化界面添加外键：（首先先恢复数据，否则会报错-数据不完整）</p>
+<ul>
+<li><p>1.右击子表表格，选择Modify Table修改表</p>
+</li>
+<li><p>2.点击上面的Foreign Keys，点击加号添加外键</p>
+</li>
+<li><p>\3. Name指的是要添加的外键字段名字，Target Table指的是要关联的主表</p>
+</li>
+<li><p>4.旁边的Colums的from填子表的要关联的字段，To填父表要关联的字段</p>
+</li>
+<li><p>图形化操作图示<img src="https://api2.mubu.com/v3/document_image/a5d2c79d-1cdb-4cb9-a9fd-0a6dcc4f3697-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>表格中带蓝色钥匙字段的就是外键</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/db11c20b-87cc-4a5e-8952-95fcf8ca6f4c-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>此时再次删掉部门表的部门会报错：不能删掉父表的一列，因为有一个外键约束（tb_emp的dept_id字段）</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/c18313d3-a993-4a9d-9ca0-666a81f9746d-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>而删掉五号部门就可以，因为emp表中的员工没有任何一个部门关联五号部门</p>
+</li>
+<li><p>物理外键（用的很少，甚至禁用）</p>
+<ul>
+<li><p>概念：使用foreign key定义外键关联另外一张表。（刚刚添加的外键）</p>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li><p>1.影响增删改效率（需要检查外键关系）。</p>
+</li>
+<li><p>2.仅用于单节点数据库，不适用于分布式、集群场景。（比如大项目分库分表）</p>
+</li>
+<li><p>3.容易引发数据库的死锁问题，消耗性能。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>逻辑外键（业务开放中推荐使用）</p>
+<ul>
+<li><p>概念：在业务层逻辑中，解决外键关联（数据库层面刚刚建立的外键delete按钮直接删掉，删掉之后就没有物理外键关联了，这样就解决了物理外键的几个问题，此时就需要在业务代码中通过代码来保证数据的一致性和完整性）</p>
+</li>
+<li><p>通过逻辑外键，就可以很方便的解决上述问题。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一对一</p>
+<ul>
+<li><p>案例：用户与身份证信息的关系</p>
+<ul>
+<li><p>一张用户信息表，基本信息（id、姓名、性别、手机号、学历）和身份信息（生日，身份证号，签发机关，有效期开始时间、结束时间），如果在业务系统中基本信息的查询频率特别高，但身份信息查询频率很低，出于查询效率的考虑，就可以将这张大表拆分成两张小表<img src="https://api2.mubu.com/v3/document_image/be8d686c-b8bc-438c-bb63-dfba8cd21ddf-8085313.jpg" alt="img"></p>
+</li>
+<li><p>一张是用户基本信息表(tb_user)，一张是用户身份信息表（tb_user_card），这两张表就是一对一的关系，一个用户只能关联一个身份证号，一个身份证号又只能对应一个用户，<img src="https://api2.mubu.com/v3/document_image/8663e9d5-99be-4fcb-8355-46328275d263-8085313.jpg" alt="img"></p>
+</li>
+<li><p>那如何在数据库层面体现一对一的关系呢，其实只要把它看作一种特殊的一对多，在任意一张表添加外键即可，这个外键要关联另外一方的主键，为了保证一对一的关系，可以为这个外键加上约束UNIQUE唯一约束，这样就保证了一个用户不能对应两个身份证<img src="https://api2.mubu.com/v3/document_image/0598056b-a7bb-425d-8cf8-8e265c048c59-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>关系：一对一关系：多用于多表拆分，将一张表的基础字段放在一张表中，其他字段放在另一张表中，以提升操作效率</p>
+</li>
+<li><p>实现：在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的（UNIQUE）</p>
+</li>
+<li><p>例如查询 白眉鹰王用户的身份证号：查询白眉鹰王的id根据用户id到身份表查询身份证号即可</p>
+</li>
+<li><p>此时修改身份表的用户id都为一，就会报错</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/5dd5c3f6-9ff1-44f1-be46-718e9cecf96f-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多对多</p>
+<ul>
+<li><p>案例：学生与课程的关系</p>
+</li>
+<li><p>关系：一个学生可以选修多门课程，一门课程也可以供多个学生选择</p>
+</li>
+<li><p>但是多对多就不能像一对多或者多对多一样添加外键，因为无法在一个单元格放入多个值</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/80bb1067-d213-4cfc-b288-a300354f61e3-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>实现：建立第三章中间表，中甲表至少包含两个外键，分别关联两方主键</p>
+<ul>
+<li><p>比如说查询黛绮丝，id为1的学生选修了几门课程，在学生课程关系表一目了然，courseid是123，在课程表对应Java，PHP，MySQL<img src="https://api2.mubu.com/v3/document_image/cfbc7901-65d9-4089-abe7-a10b505ddeb4-8085313.jpg" alt="img"></p>
+</li>
+<li><p>再比如说想看有几个学生选了Java课程，拿着Java课程的id：1取学生课程关系表寻找也能一目了然：两位位id–1和2，就可以根据这个studentid当学生表查找数据，最终就知道黛绮丝和谢逊选修了Java<img src="https://api2.mubu.com/v3/document_image/ac8689c9-2c11-45d8-a018-09827d4dd478-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>例如</p>
+<ul>
+<li>建表语句：关系表通过设置外键关联了学生表和课程表（物理外键，但是项目开放中物理外键已经很少用了）<img src="https://api2.mubu.com/v3/document_image/7e8eb769-a0df-411e-a9e0-b62ed7ba8d63-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>显示关系图</p>
+<ul>
+<li><p>ctrl多选选中三张表，选择Diagrams，再选择Show Visualization查看<img src="https://api2.mubu.com/v3/document_image/354fce4d-483f-47fc-8b64-0cda8c8a315a-8085313.jpg" alt="img"></p>
+</li>
+<li><p>关系图<img src="https://api2.mubu.com/v3/document_image/02b7cb7f-3d12-4ea0-9030-2dc8dc1275c3-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>案例</p>
+<ul>
+<li><p>题目<img src="https://api2.mubu.com/v3/document_image/581b709b-15cb-4cb9-963a-9cb7d712b840-8085313.jpg" alt="img"></p>
+</li>
+<li><p>我写的<img src="https://api2.mubu.com/v3/document_image/4c7ca54f-94b0-4ac5-9ed2-122eb2dd14e7-8085313.jpg" alt="img"></p>
+</li>
+<li><p>打开资料中的苍穹外卖页面原型（管理后台：登录.html打开，点击登录进去；用户端：点餐.html打开）</p>
+</li>
+<li><p>介绍：餐厅的老板和员工都可以打开管理端，登录到管理后台，配置菜品分类，套餐分类等，当后台配置后，用户就可以基于微信小程序进行点餐了，</p>
+<ul>
+<li>点菜界面左侧是菜品分类，右侧就是该分类的菜品列表，点击加号就可以完成点餐列表<img src="https://api2.mubu.com/v3/document_image/9b568f22-3898-405a-bd5d-5f67fbea8a52-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>步骤：（要掌握）</p>
+<ul>
+<li><p>1.阅读页面原型及需求文档，分析各个模块涉及到的表结构，及表结构之间的关系。</p>
+</li>
+<li><p>2.根据页面原型及需求文档，分析各个表结构中具体的字段及约束。</p>
+</li>
+</ul>
+</li>
+<li><p>1.关系分析：</p>
+<ul>
+<li><p>分类与菜品：一个分类可以有多菜品，但是一个菜品只能有一个分类，是一对多的关系，所以在多的一方添加外键即可，也就是分类的id<img src="https://api2.mubu.com/v3/document_image/da626559-ae42-4efa-820b-4406551eb9af-8085313.jpg" alt="img"></p>
+</li>
+<li><p>分类和套餐的关系：一个分类对应多个套餐，但是一个套餐只能有一个分类（一对多）<img src="https://api2.mubu.com/v3/document_image/4ea602c0-5037-4ba2-b17e-c212decad6f6-8085313.jpg" alt="img"></p>
+</li>
+<li><p>添加套餐时，冠以选择关联的菜品，那就说明一个套餐对应多个菜品，但是一个菜品也能添加在不同的套餐中，所以菜品和套餐是多对多的关系，在数据库层面需要通过建立一张中间表来实现，中间表有两个字段，分别是两张表的主键<img src="https://api2.mubu.com/v3/document_image/428ea628-20de-4e32-828d-bd90bbcbfe03-8085313.jpg" alt="img"></p>
+</li>
+<li><p>最终的关系示意图<img src="https://api2.mubu.com/v3/document_image/5d01d97c-0414-4c2a-9d60-74ace5544fd0-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>2.字段类型及约束分析：</p>
+<ul>
+<li><p>分类管理页面可以看到有哪些字段，往后拉能看到页面说明</p>
+</li>
+<li><p>基于图形化界面创建表（工作绝大多数情况下都是根据图形化界面来操作，简单方便）</p>
+</li>
+<li><p>一、分类表category</p>
+<ul>
+<li><p>1.添加主键id，类型无符号整型，主键约束，注释：主键ID</p>
+</li>
+<li><p>2.菜品&#x2F;套餐名称限制在&#x3D;字符范围：2-20字符，变相的说明了该字段是非空的，页面原型和需求中没有说明分类是唯一的，我们不确定的话可以找产品经理做一个确认，有可能没有清晰表示出来，确定好这个字段是唯一的，就勾选上unique唯一约束，有不清楚的字段一定要确认，非空，这里先加上唯一约束</p>
+</li>
+<li><p>3.分类类型只有两类，直接用标识代替即可（无符号小范围整数），非空</p>
+</li>
+<li><p>5.状态就两个值，要么启用，要么停用，这里用tinyint类型，无符号，约定0是停用，1是启用，默认就为0，需要勾上非空，有默认值，而且二选一</p>
+</li>
+<li><p>6.最后添加两个基础字段create_time创建时间和update_time修改时间，非空，类型为datetime，至此建好了分类表<img src="https://api2.mubu.com/v3/document_image/1135a38d-13c3-4034-9a0e-d7dc9f54de3b-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>二、菜品表dish（字段说明在新建菜品中，口味选择暂不考虑）（这里用的逻辑外键）</p>
+<ul>
+<li><p>1.菜品分类关联分类表的主键：category_id,类型与分类表主键类型一致–int unsigned</p>
+</li>
+<li><p>2.价格长度限制在8位，还有两位小数，那就用deciaml(8,2)：总共8位，保留两位小数</p>
+</li>
+<li><p>3.图片并非储存图片，而是图片的存储路径，而且长度比较长，用varchar(300)<img src="https://api2.mubu.com/v3/document_image/e9ae6496-5c49-4653-b5f2-73b88b4b2f57-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>三、套餐表setmeal（字段说明在新建套餐页面中）（完成此表即建立好了分类和菜品，分类和套餐的关系）</p>
+<ul>
+<li>套餐菜品在中间表创建，不在套餐表创建<img src="https://api2.mubu.com/v3/document_image/401691d7-1e2c-4f5b-8df7-6ffabc571e87-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>套餐菜品关系表setmeal_dish</p>
+<ul>
+<li><p>基础字段id主键要有</p>
+</li>
+<li><p>关联的两张表的主键，setmeal_id字段和dish_id字段</p>
+</li>
+<li><p>但是还有一个份数字段需要添加，因为在添加套餐时需要指定添加菜品份数，用tinyint unsigned即可<img src="https://api2.mubu.com/v3/document_image/a3846dea-c0aa-41b7-904b-7f6a198ee99e-8085313.jpg" alt="img"></p>
+</li>
+<li><p>这里中间表就不用添加create_time和update_time的基础字段了<img src="https://api2.mubu.com/v3/document_image/039528d9-ccfc-4cb8-ad61-8a48bf945931-8085313.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>最后梳理一下这四张表的关系：</p>
+<ul>
+<li><p>1.分类表与菜品表是一对多的关系，一个分类下对应多个菜品，菜品表中有个外键字段category_id，关联的就是分类表的主键<img src="https://api2.mubu.com/v3/document_image/946d676f-8247-4b13-be71-f22fb4849b64-8085313.jpg" alt="img"></p>
+</li>
+<li><p>2.分类表与套餐表也是一对多的关系，一个分类下对应多个套餐，所以套餐表中有个外键字段category_id，关联的就是分类表的主键<img src="https://api2.mubu.com/v3/document_image/075b8f12-67c3-4f9b-9eab-1f86916a6700-8085313.jpg" alt="img"></p>
+</li>
+<li><p>3.而对于菜品和套餐是多对多的关系，所以建立了一张套餐菜品的中间表，中间表就记录了每一个套餐管理练的菜品和这个关联的菜品的份数</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>小结</p>
+<ul>
+<li>一对一可以添加外键unique保证唯一性<img src="https://api2.mubu.com/v3/document_image/760d35fe-b14e-4aa1-87a7-72f9b5d7eef5-8085313.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/Cesteo.github.io/about" rel="external nofollow noreferrer">Ceasteo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/mysql02/">https://starlike-daydream.github.io/Cesteo.github.io/Cesteo.github.io/mysql02/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/Cesteo.github.io/about" target="_blank">Ceasteo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/Cesteo.github.io/tags/database/">
+                                    <span class="chip bg-color">database</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/Cesteo.github.io/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.iohttps://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'yL2wtbQwJoG8zBy5cRtzLdVH-gzGzoHsz',
+        appKey: 'qmlOroRc0T7uEz2zzbKe59ir',
+        serverURLs: '',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '欢迎发表你的想法！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/Cesteo.github.io/mysql03/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL03">
+                        
+                        <span class="card-title">MySQL03</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库的学习3
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                    Computer Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Cesteo.github.io/tags/database/">
+                        <span class="chip bg-color">database</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Cesteo.github.io/mysql01/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="MySQL01">
+                        
+                        <span class="card-title">MySQL01</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            database的学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/Cesteo.github.io/categories/Computer-Learning/" class="post-category">
+                                    Computer Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/Cesteo.github.io/tags/database/">
+                        <span class="chip bg-color">database</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Ceasteo&#39;s Blog<br />'
+            + '文章作者: Ceasteo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/codeBlock/codeBlockFuction.min.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/codeBlock/codeLang.min.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/codeBlock/codeCopy.min.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/codeBlock/codeShrink.min.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7273581058"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/Cesteo.github.io/about" target="_blank">Ceasteo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">27.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "12";
+                        var startDate = "3";
+                        var startHour = "19";
+                        var startMinute = "18";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/starlike-daydream" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2455443454@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2577327404" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2577327404" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/Cesteo.github.io/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/Cesteo.github.io/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/aos/aos.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/js/matery.min.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/js/tw_cn.min.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://starlike-daydream.github.io/Cesteo.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/others/star.min.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/others/TencentCaptcha.min.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/others/clicklove.min.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/others/busuanzi.pure.mini.min.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/background/ribbon-dynamic.min.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/starlike-daydream/Cesteo.github.io/Cesteo.github.io/libs/instantpage/instantpage.min.js" type="module"></script>
+    
+
+<script src="/Cesteo.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/Cesteo.github.io/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":"true`"},"react":{"opacity":1},"log":false});</script></body>
+
+</html>
