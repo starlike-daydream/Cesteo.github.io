@@ -79,7 +79,7 @@ $(function () {
             $(this).addClass("img-shadow img-margin");
 
             //为文章内的图片添加no-referrer来隐藏referer（解决第三方图片外链不显示问题）
-            $(this).attr("referrerPolicy", "no-referrer");
+            $(this).attr('referrerPolicy','no-referrer');
 
             // 图片添加字幕
             let alt = $(this).attr('alt');
